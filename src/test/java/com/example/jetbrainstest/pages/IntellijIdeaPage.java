@@ -10,7 +10,7 @@ public class IntellijIdeaPage {
 
     WebDriver driver;
 
-    @FindBy(css = "[data-test='button']")
+    @FindBy(css = "a[data-test='button' ][href ='/idea/buy/']")
     private WebElement downloadButton;
 
     public Boolean checkIfDownloadButtonIsClickable(){
