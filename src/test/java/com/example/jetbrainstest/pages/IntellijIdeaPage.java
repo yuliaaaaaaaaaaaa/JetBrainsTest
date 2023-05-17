@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 // page_url = https://www.jetbrains.com/idea/
 public class IntellijIdeaPage {
 
+    WebDriver driver;
+
     @FindBy(css = "[data-test='button']")
     private WebElement downloadButton;
 
@@ -17,6 +19,7 @@ public class IntellijIdeaPage {
     }
 
     public IntellijIdeaPage(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 }
