@@ -1,7 +1,6 @@
 package com.example.jetbrainstest.tests;
 
 import com.example.jetbrainstest.pages.AppCodePage;
-import com.example.jetbrainstest.pages.IntellijIdeaPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
