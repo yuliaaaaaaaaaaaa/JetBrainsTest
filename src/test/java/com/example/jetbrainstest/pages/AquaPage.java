@@ -18,7 +18,7 @@ public class AquaPage {
     @FindBy(xpath = "//button[text()='Plugin']")
     private WebElement switcherButtonPlugin;
 
-    @FindBy(xpath = "//div[contains(@class,'navigation-buttons')]//a[text()='Get the plugin for your IDE']")
+    @FindBy(xpath = "//div[contains(@class,'navigation-buttons')]//a")
     private WebElement switcherButtonPluginChild;
 
     public Boolean downloadAquaButtonIsClickable(){
@@ -31,7 +31,7 @@ public class AquaPage {
         System.out.println("Переход на главную страницу");
     }
 
-    public String switcherButtonPluginClick(){
+    public String buttonName(){
         switcherButtonPlugin.click();
         System.out.println("Проверка названия кнопки");
         return switcherButtonPluginChild.getText();

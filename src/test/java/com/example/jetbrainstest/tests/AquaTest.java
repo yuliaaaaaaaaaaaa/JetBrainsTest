@@ -22,7 +22,7 @@ public class AquaTest extends BaseTest {
     @Test
     @DisplayName("Проверка, что кнопка скачивания активна")
     public void buttonCheck(){
-        assertTrue(aquaPage.downloadAquaButtonIsClickable());
+        assertTrue(aquaPage.downloadAquaButtonIsClickable(), "Кнопка скачивания не активна");
     }
 
     @Test
@@ -36,6 +36,6 @@ public class AquaTest extends BaseTest {
     @DisplayName("Проверка названия кнопки")
     public void switcherButtonName(){
         String btnName = "Get the plugin for your IDE";
-        assertEquals(btnName, aquaPage.switcherButtonPluginClick());
+        assertEquals(btnName, aquaPage.buttonName(), "Кнопка с нужным названием не находится на странице");
     }
 }
