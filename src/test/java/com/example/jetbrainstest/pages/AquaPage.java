@@ -4,9 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+//page_url = https://www.jetbrains.com/aqua/
 public class AquaPage {
 
+    private final Logger LOG = LoggerFactory.getLogger(AquaPage.class);
     WebDriver driver;
 
     @FindBy(xpath = "//p[text()='JetBrains Aqua IDE']/preceding-sibling::a")
@@ -22,18 +26,18 @@ public class AquaPage {
     private WebElement switcherButtonPluginChild;
 
     public Boolean downloadAquaButtonIsClickable(){
-        System.out.println("Проверка активности кнопки загрузки");
+        LOG.info("Проверка активности кнопки загрузки");
         return downloadAquaButton.isEnabled();
     }
 
     public void mainPageButtonClick(){
         mainPageButton.click();
-        System.out.println("Переход на главную страницу");
+        LOG.info("Переход на главную страницу");
     }
 
     public String buttonName(){
         switcherButtonPlugin.click();
-        System.out.println("Проверка названия кнопки");
+        LOG.info("Проверка названия кнопки");
         return switcherButtonPluginChild.getText();
     }
 
