@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.pages;
 
+import com.example.jetbrainstest.AllureLogger;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,7 @@ import org.slf4j.LoggerFactory;
 //page_url = https://www.jetbrains.com/aqua/
 public class AquaPage {
 
-    private final Logger LOG = LoggerFactory.getLogger(AquaPage.class);
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(AquaPage.class));
     WebDriver driver;
 
     @FindBy(xpath = "//p[text()='JetBrains Aqua IDE']/preceding-sibling::a")
@@ -26,19 +27,19 @@ public class AquaPage {
     @FindBy(xpath = "//div[contains(@class,'navigation-buttons')]//a")
     private WebElement switcherButtonPluginChild;
 
-    @Step("Проверка активности кнопки загрузки")
+
     public Boolean downloadAquaButtonIsClickable(){
         LOG.info("Проверка активности кнопки загрузки");
         return downloadAquaButton.isEnabled();
     }
 
-    @Step("Переход на главную страницу")
+
     public void mainPageButtonClick(){
         mainPageButton.click();
         LOG.info("Переход на главную страницу");
     }
 
-    @Step("Проверка названия кнопки")
+
     public String buttonName(){
         switcherButtonPlugin.click();
         LOG.info("Проверка названия кнопки");
