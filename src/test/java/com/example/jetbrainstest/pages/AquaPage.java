@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,16 +26,19 @@ public class AquaPage {
     @FindBy(xpath = "//div[contains(@class,'navigation-buttons')]//a")
     private WebElement switcherButtonPluginChild;
 
+    @Step("Проверка активности кнопки загрузки")
     public Boolean downloadAquaButtonIsClickable(){
         LOG.info("Проверка активности кнопки загрузки");
         return downloadAquaButton.isEnabled();
     }
 
+    @Step("Переход на главную страницу")
     public void mainPageButtonClick(){
         mainPageButton.click();
         LOG.info("Переход на главную страницу");
     }
 
+    @Step("Проверка названия кнопки")
     public String buttonName(){
         switcherButtonPlugin.click();
         LOG.info("Проверка названия кнопки");
