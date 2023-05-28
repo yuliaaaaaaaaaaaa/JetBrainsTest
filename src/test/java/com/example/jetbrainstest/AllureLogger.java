@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import org.slf4j.Logger;
 
 public class AllureLogger {
-    private Logger logger;
+    private final Logger logger;
 
     public AllureLogger(Logger logger){
         this.logger = logger;
