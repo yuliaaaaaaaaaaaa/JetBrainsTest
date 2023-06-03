@@ -2,7 +2,6 @@ package com.example.jetbrainstest.pages;
 
 import com.example.jetbrainstest.AllureAttachmentsManager;
 import com.example.jetbrainstest.AllureLogger;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
