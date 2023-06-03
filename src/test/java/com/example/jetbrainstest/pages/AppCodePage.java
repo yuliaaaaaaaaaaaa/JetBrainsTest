@@ -20,7 +20,7 @@ public class AppCodePage {
     private WebElement downloadButton;
 
     public Boolean checkIfDownloadButtonIsClickable(){
-        LOG.info("Проверка активности кнопки загрузки");
+        LOG.infoWithScreenshot("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
     }
 
