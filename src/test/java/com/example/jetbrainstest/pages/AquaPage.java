@@ -1,6 +1,8 @@
 package com.example.jetbrainstest.pages;
 
+import com.example.jetbrainstest.AllureAttachmentsManager;
 import com.example.jetbrainstest.AllureLogger;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,6 +30,7 @@ public class AquaPage {
 
     public Boolean downloadAquaButtonIsClickable(){
         LOG.info("Проверка активности кнопки загрузки");
+        AllureAttachmentsManager.schreenshot();
         return downloadAquaButton.isEnabled();
     }
 
@@ -35,12 +38,14 @@ public class AquaPage {
     public void mainPageButtonClick(){
         mainPageButton.click();
         LOG.info("Переход на главную страницу");
+        AllureAttachmentsManager.schreenshot();
     }
 
 
     public String buttonName(){
         switcherButtonPlugin.click();
         LOG.info("Проверка названия кнопки");
+        AllureAttachmentsManager.schreenshot();
         return switcherButtonPluginChild.getText();
     }
 
