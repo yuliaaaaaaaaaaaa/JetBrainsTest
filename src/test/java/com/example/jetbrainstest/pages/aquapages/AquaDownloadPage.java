@@ -21,8 +21,6 @@ public class AquaDownloadPage {
     private List <WebElement> downloadIDEButton;
     @FindBy(xpath = "//div[@role='tab']//div")
     private List <WebElement> osTabs;
-    @FindBy(xpath = "//a[contains(@class,'menu-item') and text()='Documentation']")
-    private WebElement documentationButton;
 
     /**
      * System requirements
