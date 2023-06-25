@@ -1,6 +1,7 @@
 package com.example.jetbrainstest.pages;
 
 
+import io.qameta.allure.Step;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,8 @@ public class WebStormPage {
     WebDriver driver;
     @FindBy(css = "a[data-test='button' ][href ='/webstorm/download/download-thanks.html']")
     private WebElement downloadButton;
+
+
     public Boolean checkIfDownloadButtonIsClickable(){
         LOG.info("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
@@ -24,6 +27,7 @@ public class WebStormPage {
     }
     @FindBy(xpath = "//a[@href='/webstorm/whatsnew/']")
     public WebElement whatsNewButton;
+    @Step("Переход на страницу Whats New")
     public void whatsNewButtonClick(){
         whatsNewButton.click();
         LOG.info("Переход на страницу Whats New");
