@@ -16,57 +16,57 @@ public class AquaDownloadPage {
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(AquaDownloadPage.class));
 
     @FindBy(xpath = "//a[text()='Download Toolbox App']")
-    private List <WebElement> downloadToolboxApp;
+    private List<WebElement> downloadToolboxApp;
     @FindBy(xpath = "//a[text()='Download IDE']")
-    private List <WebElement> downloadIDEButton;
+    private List<WebElement> downloadIDEButton;
     @FindBy(xpath = "//div[@role='tab']//div")
-    private List <WebElement> osTabs;
+    private List<WebElement> osTabs;
 
     /**
      * System requirements
      */
     @FindBy(xpath = "//span[text()='System requirements']")
-    private List <WebElement> systemRequirements;
-    @FindBy(xpath = "//ul[@data-test=\"system-requirements-list\"]//li")
-    private List <WebElement> systemRequirementsList;
+    private List<WebElement> systemRequirements;
+    @FindBy(xpath = "//ul[@data-test='system-requirements-list']//li")
+    private List<WebElement> systemRequirementsList;
 
     /**
      * Installation instructions
      */
     @FindBy(xpath = "//span[text()='Installation instructions']")
-    private List <WebElement> installationInstructions;
+    private List<WebElement> installationInstructions;
 
-    @FindBy(xpath = "//ol[@data-test=\"installation-instructions-list\"]//li")
-    private List <WebElement> installationInstructionsList;
+    @FindBy(xpath = "//ol[@data-test='installation-instructions-list']//li")
+    private List<WebElement> installationInstructionsList;
 
 
-    public Boolean downloadToolboxApp(int id){
+    public Boolean downloadToolboxApp(int id) {
         LOG.info("Проверка кликабельности кнопки загрузки Toolbox App");
         osTabs.get(id).click();
         return downloadToolboxApp.get(id).isDisplayed();
     }
 
-    public Boolean downloadIDEButton(int id){
+    public Boolean downloadIDEButton(int id) {
         LOG.info("Проверка кликабельности кнопки загрузки IDE");
         osTabs.get(id).click();
         return downloadIDEButton.get(id).isDisplayed();
     }
 
-    public String systemRequirementsPopupWindow(int id){
+    public String systemRequirementsPopupWindow(int id) {
         osTabs.get(id).click();
         systemRequirements.get(id).click();
         LOG.info("Проверка отображения системных требований");
         return systemRequirementsList.get(0).getText();
     }
 
-    public String installationInstructionsPopupWindow(int id){
+    public String installationInstructionsPopupWindow(int id) {
         osTabs.get(id).click();
         installationInstructions.get(id).click();
         LOG.info("Проверка отображения инструкции по установке");
         return installationInstructionsList.get(0).getText();
     }
 
-    public AquaDownloadPage(WebDriver driver){
+    public AquaDownloadPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
