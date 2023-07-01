@@ -6,11 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 //page url = https://www.jetbrains.com/clion/
 public class CLionPage extends BaseTest {
+
+    private final Logger LOG = LoggerFactory.getLogger(CLionPage.class);
     WebDriver driver;
-    JavascriptExecutor jsExecutor;
 
     @FindBy(css = "a[href=\"/clion/download/\"]")
     private WebElement downloadButton;
@@ -26,21 +29,23 @@ public class CLionPage extends BaseTest {
 
     public CLionPage(WebDriver driver) {
         this.driver = driver;
-        this.jsExecutor = (JavascriptExecutor) driver;
         PageFactory.initElements(driver, this);
     }
 
     public Boolean checkIfDownloadButtonIsClickable(){
-        System.out.println("Проверка активности кнопки загрузки");
+        LOG.info("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
     }
 
     public void switchOnIframe() {
+        LOG.info("Переключение на frame с видео");
         imgVideoButton.click();
     }
 
     public String getNameOfVideo() {
         switchOnIframe();
+
+        LOG.info("Получение названия видео");
         driver.switchTo().frame(videoIframe);
 
         return videoTitle.getText();
