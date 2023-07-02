@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.tests;
 
+import com.example.jetbrainstest.AllureAttachmentsManager;
 import com.example.jetbrainstest.pages.CLionPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

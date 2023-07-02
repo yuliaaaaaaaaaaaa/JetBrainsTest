@@ -38,16 +38,15 @@ public class CLionPage extends BaseTest {
     }
 
     public void switchOnIframe() {
-        LOG.info("Переключение на frame с видео");
         imgVideoButton.click();
+        driver.switchTo().frame(videoIframe);
+        LOG.info("Переключение на frame с видео");
     }
 
     public String getNameOfVideo() {
         switchOnIframe();
-
-        LOG.info("Получение названия видео");
-        driver.switchTo().frame(videoIframe);
-
-        return videoTitle.getText();
+        String titleVideo = videoTitle.getText();
+        LOG.infoWithScreenshot("Получение названия видео");
+        return titleVideo;
     }
 }
