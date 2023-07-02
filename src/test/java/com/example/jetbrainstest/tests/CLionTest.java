@@ -1,6 +1,5 @@
 package com.example.jetbrainstest.tests;
 
-import com.example.jetbrainstest.AllureAttachmentsManager;
 import com.example.jetbrainstest.pages.CLionPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,13 +21,13 @@ public class CLionTest extends BaseTest {
 
     @Test
     @DisplayName("Проверка, что кнопка скачивания активна")
-    public void buttonCheck(){
+    public void buttonCheck() {
         assertTrue(cLionPage.checkIfDownloadButtonIsClickable(), "Кнопка скачивания не активна");
     }
 
     @Test
     @DisplayName("Проверка, что воспроизведено видео для CLion")
-    public void playerCheck(){
+    public void playerCheck() {
         String titleVideo = cLionPage.getNameOfVideo();
         assertEquals(titleVideo, "CLion Quick Tour", "Воспроизводится другое видео");
     }
