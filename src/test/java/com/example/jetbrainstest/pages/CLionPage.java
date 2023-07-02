@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 //page url = https://www.jetbrains.com/clion/
 public class CLionPage extends BaseTest {
 
-//    private final Logger LOG = LoggerFactory.getLogger(CLionPage.class);
+    //    private final Logger LOG = LoggerFactory.getLogger(CLionPage.class);
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(CLionPage.class));
     WebDriver driver;
 
@@ -32,7 +32,7 @@ public class CLionPage extends BaseTest {
         PageFactory.initElements(driver, this);
     }
 
-    public Boolean checkIfDownloadButtonIsClickable(){
+    public Boolean checkIfDownloadButtonIsClickable() {
         LOG.info("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
     }
