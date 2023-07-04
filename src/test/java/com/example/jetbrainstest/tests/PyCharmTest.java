@@ -27,4 +27,10 @@ public class PyCharmTest extends BaseTest {
         pyCharmPage = new PyCharmPage(getDriver());
         Assertions.assertEquals(pyCharmPage.clickPyCharmButtonAndCheckUrl(),"https://www.jetbrains.com/pycharm/","URL не равен ожидаемому");
     }
+    @Test
+    @DisplayName("Проверка активности кнопки Download")
+    public void downloadButtonIsActive(){
+        pyCharmPage = new PyCharmPage(getDriver());
+        Assertions.assertTrue(pyCharmPage.pyCharmButtonIsActive());
+    }
 }
