@@ -31,6 +31,6 @@ public class PyCharmTest extends BaseTest {
     @DisplayName("Проверка активности кнопки Download")
     public void downloadButtonIsActive(){
         pyCharmPage = new PyCharmPage(getDriver());
-        Assertions.assertTrue(pyCharmPage.pyCharmButtonIsActive());
+        Assertions.assertTrue(pyCharmPage.downloadButtonIsActive());
     }
 }
