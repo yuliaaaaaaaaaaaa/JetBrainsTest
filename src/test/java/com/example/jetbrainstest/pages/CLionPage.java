@@ -32,6 +32,18 @@ public class CLionPage extends BaseTest {
     @FindBy(css = ".social-footer__link")
     private List<WebElement> followButtons;
 
+    @FindBy(css = "[name='Email']")
+    private WebElement emailInput;
+
+    @FindBy(xpath = "//button[contains(text(), 'Submit')]")
+    private  WebElement emailSubmit;
+
+    @FindBy(css = ".social-footer p:last-child")
+    private WebElement MessageAfterEnteringValidEmail;
+
+    @FindBy(css = "[data-test=\"error-message\"]")
+    private WebElement MessageAfterEnteringInvalidEmail;
+
     public CLionPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -60,6 +72,22 @@ public class CLionPage extends BaseTest {
         for (WebElement i: followButtons) {
             statusOfFollowButtons.add(i.isEnabled());
         }
+        LOG.infoWithScreenshot("Получение активности кнопок из блока Follow Us");
         return statusOfFollowButtons;
+    }
+
+    public void enterEmail(String email) {
+        emailInput.sendKeys(email);
+        emailSubmit.click();
+    }
+
+    public String enterValidEmailAndGetAnswerAboutSuccess(String email) {
+        enterEmail(email);
+        return MessageAfterEnteringValidEmail.getText();
+    }
+
+    public String enterInvalidEmailAndGetWarning(String email) {
+        enterEmail(email);
+        return MessageAfterEnteringInvalidEmail.getText();
     }
 }
