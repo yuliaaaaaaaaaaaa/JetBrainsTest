@@ -8,10 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //page url = https://www.jetbrains.com/clion/
 public class CLionPage extends BaseTest {
 
-    //    private final Logger LOG = LoggerFactory.getLogger(CLionPage.class);
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(CLionPage.class));
     WebDriver driver;
 
@@ -26,6 +28,9 @@ public class CLionPage extends BaseTest {
 
     @FindBy(css = "#player a[href^=\"https://www.youtube.com/watch\"]")
     private WebElement videoTitle;
+
+    @FindBy(css = ".social-footer__link")
+    private List<WebElement> followButtons;
 
     public CLionPage(WebDriver driver) {
         this.driver = driver;
@@ -48,5 +53,13 @@ public class CLionPage extends BaseTest {
         String titleVideo = videoTitle.getText();
         LOG.infoWithScreenshot("Получение названия видео");
         return titleVideo;
+    }
+
+    public List<Boolean> checkIfFollowButtonsAreClickable() {
+        List<Boolean> statusOfFollowButtons = new ArrayList<>();
+        for (WebElement i: followButtons) {
+            statusOfFollowButtons.add(i.isEnabled());
+        }
+        return statusOfFollowButtons;
     }
 }
