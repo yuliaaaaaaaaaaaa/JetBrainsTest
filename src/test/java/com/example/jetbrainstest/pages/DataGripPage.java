@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.time.Duration;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class DataGripPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
+    private final Logger LOG = LoggerFactory.getLogger(DataGripPage.class);
 
     @FindBy(xpath = "//a[contains(@class,'wt-button wt-button_mode_contrast')]")
     private WebElement downloadDataGripButton;
@@ -33,14 +36,12 @@ public class DataGripPage {
     @FindBy(xpath = "//button[@data-test='close-button']")
     private WebElement closeVideoButton;
 
-    @FindBy(xpath = "//iframe[@id='widget4']")
-    private WebElement videoPlayer;
 
     public List<WebElement> getComboBoxes() {
         downloadListResult.click();
         List<WebElement> comboBoxes = resultsComboBox;
         for (WebElement comboBox : comboBoxes) {
-            System.out.println("ComboBox DataGrip button download: " + comboBox.getText());
+            LOG.info("ComboBox DataGrip button download: " + comboBox.getText());
         }
         return comboBoxes;
     }
@@ -56,25 +57,18 @@ public class DataGripPage {
     }
 
     public boolean checkTakeATourButton(){
-        System.out.println("Проверка активности кнопки");
+        LOG.info("Проверка активности кнопки");
         return clickTakeATourButton.isEnabled();
     }
 
     public void clickPlayAndStopPlayer(){
         clickVideo.click();
-        videoPlayer.click();
         waitSleep();
     }
 
     public boolean isPlayerClosed(){return !closeVideoButton.isEnabled();}
 
-    public void waitSleep(){
-        try {
-            Thread.sleep(7000); //
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+    public void waitSleep(){WebDriverWait waits = new WebDriverWait(driver, Duration.ofSeconds(50));}
 
     public DataGripPage(WebDriver driver){
         this.driver = driver;

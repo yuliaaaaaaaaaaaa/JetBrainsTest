@@ -36,6 +36,6 @@ public class DataGripTest extends BaseTest {
         assertTrue(dataGripPage.checkTakeATourButton(),"Кнопка не активна");
         dataGripPage.clickButtonTakeATour();
         dataGripPage.clickPlayAndStopPlayer();
-        assertTrue(!dataGripPage.isPlayerClosed(), "Видеоплеер не закрылся");
+        assertFalse(dataGripPage.isPlayerClosed(), "Видеоплеер не закрылся");
     }
 }
