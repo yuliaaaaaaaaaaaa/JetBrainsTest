@@ -1,4 +1,4 @@
-package com.example.jetbrainstest.pages;
+package com.example.jetbrainstest.pages.clionpages;
 
 import com.example.jetbrainstest.AllureLogger;
 import com.example.jetbrainstest.tests.BaseTest;
