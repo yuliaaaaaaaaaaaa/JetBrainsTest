@@ -1,6 +1,7 @@
 package com.example.jetbrainstest.tests;
 
 import com.example.jetbrainstest.MyExtension;
+import com.example.jetbrainstest.pages.clionpages.CLionDownloadPage;
 import com.example.jetbrainstest.pages.clionpages.CLionPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ExtendWith(MyExtension.class)
 public class CLionTest extends BaseTest {
     private CLionPage cLionPage;
+    private CLionDownloadPage cLionDownloadPage;
 
     @BeforeEach
     @Override
@@ -26,12 +28,28 @@ public class CLionTest extends BaseTest {
         super.setUp();
         getDriver().get("https://www.jetbrains.com/clion/");
         cLionPage = new CLionPage(getDriver());
+        cLionDownloadPage = new CLionDownloadPage(getDriver());
     }
 
     @Test
-    @DisplayName("Кнопка скачивания активна")
-    public void downloadButtonCheck() {
+    @DisplayName("Кнопка скачивания активна на главной странице CLion")
+    public void downloadButtonCheckMainPage() {
         assertTrue(cLionPage.checkIfDownloadButtonIsClickable(), "Кнопка скачивания не активна");
+    }
+
+    @Test
+    @DisplayName("Кнопка скачивания активна на странице загрузки CLion")
+    public void downloadButtonCheckDownloadPage() {
+        cLionPage.clickDownloadButton();
+        assertTrue(cLionDownloadPage.checkIfDownloadButtonIsClickable(), "Кнопка скачивания не активна");
+    }
+
+    @Test
+    @DisplayName("Кнопка скачивания файла в формате zip активна")
+    public void checkButtonInZipFormat() {
+        cLionPage.clickDownloadButton();
+        cLionDownloadPage.clickExe();
+        assertTrue(cLionDownloadPage.checkIfZipButtonIsClickable(), "Кнопка скачивания не активна");
     }
 
     @Test
@@ -104,4 +122,11 @@ public class CLionTest extends BaseTest {
         assertEquals(countOfScreenshot, 3, "Колиечество скриншотов для в разделе 'Code analysis on the fly' не равно 3");
     }
 
+    @Test
+    @DisplayName("Отображается загловок в окне с инструкций по установке")
+    public void checkIfInstructionHeaderTextIsDisplayed() {
+        cLionPage.clickDownloadButton();
+        cLionDownloadPage.clickInstruction();
+        assertTrue(cLionDownloadPage.checkIfHeaderInstructionIsDisplayed(), "Заголовок не отображается");
+    }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 public class CLionPage extends BaseTest {
 
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(CLionPage.class));
-    WebDriver driver;
+    private final WebDriver driver;
 
     @FindBy(css = "a[href=\"/clion/download/\"]")
     private WebElement downloadButton;
@@ -56,18 +56,23 @@ public class CLionPage extends BaseTest {
     @FindBy(css = "h2 + div img[alt=\"Code Analysis screenshot\"]")
     private List<WebElement> ScreenshotsInCodeAnalysisSection;
 
-    public Integer getCountOfScreenshotsInCodeAnalysisSection() {
-        return ScreenshotsInCodeAnalysisSection.size();
-    }
-
     public CLionPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    public Integer getCountOfScreenshotsInCodeAnalysisSection() {
+        return ScreenshotsInCodeAnalysisSection.size();
+    }
+
     public Boolean checkIfDownloadButtonIsClickable() {
         LOG.info("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
+    }
+
+    public void clickDownloadButton() {
+        LOG.info("Переход на страницу загрузки");
+        downloadButton.click();
     }
 
     public Boolean checkIfwhatIsNewButtonClickable() {
