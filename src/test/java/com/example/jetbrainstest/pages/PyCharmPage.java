@@ -1,6 +1,6 @@
 package com.example.jetbrainstest.pages;
 
-import org.junit.jupiter.api.BeforeEach;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,20 +18,20 @@ public class PyCharmPage {
 
     @FindBy(css = ".overview-header__download")
     private WebElement downloadButton;
-
+    @Step("Переходим по ссылке: https://www.jetbrains.com/pycharm/ и проверяем, что кнопка Download отображается")
     public boolean downloadButtonIsActive(){
         LOG.info("Проверка доступности кнопки 'Download'");
         driver.get("https://www.jetbrains.com/pycharm/");
         return downloadButton.isDisplayed();
     }
 
-
+    @Step("Переходим по ссылке: https://www.jetbrains.com/pycharm/ и проверяем, что кнопка PyCharm отображается")
     public boolean pyCharmButtonIsActive(){
         LOG.info("Проверка доступности кнопки 'PyCharm'");
         driver.get("https://www.jetbrains.com/pycharm/");
         return pyCharmButton.isDisplayed();
     }
-
+    @Step("Переходим по ссылке: https://www.jetbrains.com/pycharm/ и проверяем, нажимаем на кнопку PyCharm и проверяем УРЛ")
     public String clickPyCharmButtonAndCheckUrl(){
         LOG.info("Проверка URL страницы, на которую попадаем после нажатия кнопки 'PyCharm'");
         driver.get("https://www.jetbrains.com/pycharm/");
