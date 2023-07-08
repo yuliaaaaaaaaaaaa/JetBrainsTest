@@ -25,7 +25,7 @@ public class CLionDownloadPage {
     @FindBy(xpath = "//button[contains(text(), '.exe')]")
     private WebElement zipButton;
 
-    @FindBy(xpath = "//button[contains(text(), 'Installation instructions')]")
+    @FindBy(xpath = "//span[contains(text(), 'Installation instructions')]")
     private WebElement InstructionButton;
 
     @FindBy(xpath = "//div[contains(text(), 'Installation instructions')]")

@@ -123,7 +123,7 @@ public class CLionTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Отображается загловок в окне с инструкций по установке")
+    @DisplayName("Отображение загловока в окне с инструкций по установке")
     public void checkIfInstructionHeaderTextIsDisplayed() {
         cLionPage.clickDownloadButton();
         cLionDownloadPage.clickInstruction();
