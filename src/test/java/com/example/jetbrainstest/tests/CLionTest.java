@@ -4,6 +4,7 @@ import com.example.jetbrainstest.MyExtension;
 import com.example.jetbrainstest.pages.CLionPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -28,9 +29,15 @@ public class CLionTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Активна кнопка скачивания")
+    @DisplayName("Кнопка скачивания активна")
     public void downloadButtonCheck() {
         assertTrue(cLionPage.checkIfDownloadButtonIsClickable(), "Кнопка скачивания не активна");
+    }
+
+    @Test
+    @DisplayName("Кнопка 'what's new' активна")
+    public void whatIsNewButtonCheck() {
+        assertTrue(cLionPage.checkIfwhatIsNewButtonClickable(), "Кнопка 'what's new' не активна");
     }
 
     @Test
@@ -79,6 +86,22 @@ public class CLionTest extends BaseTest {
     public void enterEmailWithoutAt(String email) {
         String warningAnswer = cLionPage.enterInvalidEmailAndGetWarning(email);
         assertEquals(warningAnswer, "Please enter a valid email address.", "Текст сообщения некорректен");
+    }
+
+    @RepeatedTest(5) // в некоторых случаях страница не переключается (причина не выяснена)
+    @DisplayName("Смена языка страницы на русский")
+    public void changeLanguageOfPage() throws InterruptedException {
+        String language = "Русский";
+        cLionPage.changeLanguage(language);
+        String urlPage = getDriver().getCurrentUrl();
+        assertEquals(urlPage, "https://www.jetbrains.com/ru-ru/clion/", "Открыта страница не с русским языком");
+    }
+
+    @Test
+    @DisplayName("В разделе 'Code analysis on the fly' есть три фото")
+    public void checkScreenshotFromCodeAnalysisSection() {
+        Integer countOfScreenshot = cLionPage.getCountOfScreenshotsInCodeAnalysisSection();
+        assertEquals(countOfScreenshot, 3, "Колиечество скриншотов для в разделе 'Code analysis on the fly' не равно 3");
     }
 
 }
