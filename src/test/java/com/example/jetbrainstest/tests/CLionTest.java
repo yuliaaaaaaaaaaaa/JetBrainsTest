@@ -90,7 +90,7 @@ public class CLionTest extends BaseTest {
 
     @RepeatedTest(5) // в некоторых случаях страница не переключается (причина не выяснена)
     @DisplayName("Смена языка страницы на русский")
-    public void changeLanguageOfPage() throws InterruptedException {
+    public void changeLanguageOfPage() {
         String language = "Русский";
         cLionPage.changeLanguage(language);
         String urlPage = getDriver().getCurrentUrl();
