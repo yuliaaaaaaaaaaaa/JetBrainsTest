@@ -91,13 +91,9 @@ public class CLionPage {
         return videoTitle.getText();
     }
 
-    public List<Boolean> checkIfFollowButtonsAreClickable() {
-        LOG.info("Получение активности кнопок из блока Follow Us");
-        List<Boolean> statusOfFollowButtons = new ArrayList<>();
-        for (WebElement i: followButtons) {
-            statusOfFollowButtons.add(i.isEnabled());
-        }
-        return statusOfFollowButtons;
+    public Boolean checkIfFollowButtonsAreClickable(int num) {
+        LOG.info("Получение активности кнопки из блока Follow Us");
+        return followButtons.get(num).isEnabled();
     }
 
     public void enterEmail(String email) {

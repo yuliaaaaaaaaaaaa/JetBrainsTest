@@ -69,8 +69,7 @@ public class CLionTest extends BaseTest {
     @CsvSource({"0", "1", "2", "3"})
     @DisplayName("Активны кнопки из блока Follow Us")
     public void followButtonsCheck(int numberButton) {
-        List<Boolean> listOfButtonStatuses = cLionPage.checkIfFollowButtonsAreClickable();
-        Boolean StatusOfOneButton = listOfButtonStatuses.get(numberButton);
+        Boolean StatusOfOneButton = cLionPage.checkIfFollowButtonsAreClickable(numberButton);
         assertTrue(StatusOfOneButton, String.format("Кнопка №%d неактивна", numberButton));
     }
 
