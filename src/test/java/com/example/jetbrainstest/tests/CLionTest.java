@@ -11,7 +11,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -84,14 +83,14 @@ public class CLionTest extends BaseTest {
         // getDriver().manage().deleteAllCookies(); // раскомментировать в случае полного нежелания ожидать 2 минуты
 
         getDriver().navigate().refresh();
-        String answerAfterEnteringEmail = cLionPage.enterValidEmailAndGetAnswerAboutSuccess(email);
+        String answerAfterEnteringEmail = cLionPage.getAnswerAfterEnteringValidEmail(email);
         assertEquals(answerAfterEnteringEmail, "Thanks for your request!", "Ooopps, something is wrong (I didn't get the right answer)");
     }
 
     @Test
     @DisplayName("Ввод пустого email")
     public void enterEmptyEmail() {
-        String warningAnswer = cLionPage.enterInvalidEmailAndGetWarning("");
+        String warningAnswer = cLionPage.getWarningAfterEnteringInvalidEmail("");
         assertEquals(warningAnswer, "This field is required.", "Текст сообщения некорректен");
     }
 
@@ -101,7 +100,7 @@ public class CLionTest extends BaseTest {
     @CsvSource({"sldkfj", "slkf@", "qwer@lsakjf"})
     @DisplayName("Ввод невалидного email")
     public void enterInvalidEmail(String email) {
-        String warningAnswer = cLionPage.enterInvalidEmailAndGetWarning(email);
+        String warningAnswer = cLionPage.getWarningAfterEnteringInvalidEmail(email);
         assertEquals(warningAnswer, "Please enter a valid email address.", "Текст сообщения некорректен");
     }
 
@@ -117,7 +116,7 @@ public class CLionTest extends BaseTest {
     @Test
     @DisplayName("В разделе 'Code analysis on the fly' есть три фото")
     public void checkScreenshotFromCodeAnalysisSection() {
-        Integer countOfScreenshot = cLionPage.getCountOfScreenshotsInCodeAnalysisSection();
+        int countOfScreenshot = cLionPage.getCountOfScreenshotsInCodeAnalysisSection();
         assertEquals(countOfScreenshot, 3, "Колиечество скриншотов для в разделе 'Code analysis on the fly' не равно 3");
     }
 

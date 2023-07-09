@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 //page url = https://www.jetbrains.com/clion/
@@ -102,13 +101,13 @@ public class CLionPage {
         emailSubmit.click();
     }
 
-    public String enterValidEmailAndGetAnswerAboutSuccess(String email) {
+    public String getAnswerAfterEnteringValidEmail(String email) {
         enterEmail(email);
         LOG.info("Получение сообщения при вводе валидного email");
         return messageAfterEnteringValidEmail.getText();
     }
 
-    public String enterInvalidEmailAndGetWarning(String email) {
+    public String getWarningAfterEnteringInvalidEmail(String email) {
         enterEmail(email);
         LOG.info("Получение сообщения при вводе невалидного email");
         return messageAfterEnteringInvalidEmail.getText();
