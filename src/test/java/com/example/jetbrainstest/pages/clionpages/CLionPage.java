@@ -1,7 +1,6 @@
 package com.example.jetbrainstest.pages.clionpages;
 
 import com.example.jetbrainstest.AllureLogger;
-import com.example.jetbrainstest.tests.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //page url = https://www.jetbrains.com/clion/
-public class CLionPage extends BaseTest {
+public class CLionPage {
 
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(CLionPage.class));
     private final WebDriver driver;

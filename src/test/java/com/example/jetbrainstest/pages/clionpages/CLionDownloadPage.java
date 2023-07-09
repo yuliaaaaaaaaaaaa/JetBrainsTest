@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
 
 public class CLionDownloadPage {
-    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(CLionPage.class));
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(CLionDownloadPage.class));
     private final WebDriver driver;
 
     public CLionDownloadPage(WebDriver driver) {
