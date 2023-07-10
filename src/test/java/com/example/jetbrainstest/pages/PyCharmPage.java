@@ -20,19 +20,19 @@ public class PyCharmPage {
     @FindBy(css = ".overview-header__download")
     private WebElement downloadButton;
     public boolean downloadButtonIsActive(){
-        LOG.info("Проверка доступности кнопки 'Download'");
+        LOG.infoWithScreenshot("Проверка доступности кнопки 'Download'");
         driver.get("https://www.jetbrains.com/pycharm/");
         return downloadButton.isDisplayed();
     }
     public boolean pyCharmButtonIsActive(){
-        LOG.info("Проверка доступности кнопки 'PyCharm'");
         driver.get("https://www.jetbrains.com/pycharm/");
+        LOG.infoWithScreenshot("Проверка доступности кнопки 'PyCharm'");
         return pyCharmButton.isDisplayed();
     }
     public String clickPyCharmButtonAndCheckUrl(){
-        LOG.info("Проверка URL страницы, на которую попадаем после нажатия кнопки 'PyCharm'");
         driver.get("https://www.jetbrains.com/pycharm/");
         pyCharmButton.click();
+        LOG.infoWithScreenshot("Проверка URL страницы, на которую попадаем после нажатия кнопки 'PyCharm'");
         return driver.getCurrentUrl();
     }
 
