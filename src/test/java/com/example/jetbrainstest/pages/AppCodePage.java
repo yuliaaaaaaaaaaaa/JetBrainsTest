@@ -1,5 +1,7 @@
 package com.example.jetbrainstest.pages;
 
+import com.example.jetbrainstest.tests.AllureLogger;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,14 +12,15 @@ import org.slf4j.LoggerFactory;
 // page_url = https://www.jetbrains.com/objc/
 public class AppCodePage {
 
-    private final Logger LOG = LoggerFactory.getLogger(AppCodePage.class);
+    //private final Logger LOG = LoggerFactory.getLogger(AppCodePage.class);
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(AppCodePage.class));
     WebDriver driver;
 
     @FindBy(css = "[href ='/objc/download/']")
     private WebElement downloadButton;
 
     public Boolean checkIfDownloadButtonIsClickable(){
-        LOG.info("Проверка активности кнопки загрузки");
+        LOG.infoWithScreenshot("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
     }
 
