@@ -16,6 +16,7 @@ public class MainPageTest extends BaseTest{
     @Override
     public void setUp(){
         super.setUp();
+        getDriver().get("https://www.jetbrains.com/idea/");
         mainPage = new MainPage(getDriver());
     }
 

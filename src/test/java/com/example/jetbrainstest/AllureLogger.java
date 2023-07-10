@@ -20,5 +20,4 @@ public class AllureLogger {
         logger.info(logText);
         AllureAttachmentsManager.screenshot();
     }
-
 }
