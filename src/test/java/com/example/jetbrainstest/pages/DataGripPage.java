@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,6 +38,7 @@ public class DataGripPage {
     private WebElement closeVideoButton;
 
 
+    @Step("ComboBox DataGrip button download")
     public List<WebElement> getComboBoxes() {
         downloadListResult.click();
         List<WebElement> comboBoxes = resultsComboBox;
@@ -56,11 +58,13 @@ public class DataGripPage {
         clickTakeATourButton.click();
     }
 
+    @Step("Проверка активности кнопки")
     public boolean checkTakeATourButton(){
         LOG.info("Проверка активности кнопки");
         return clickTakeATourButton.isEnabled();
     }
 
+    @Step("Play video button")
     public void clickPlayAndStopPlayer(){
         clickVideo.click();
         waitSleep();
