@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PhpStormTest extends BaseTest{
-
     private PhpStormPage PhpStormPage;
 
     @BeforeEach
@@ -18,19 +17,16 @@ public class PhpStormTest extends BaseTest{
         getDriver().get("https://www.jetbrains.com/phpstorm/");
         PhpStormPage = new PhpStormPage(getDriver());
     }
-
     @Test
     @DisplayName("Проверка нажатия кнопки на главную страницу")
     public void mainPageButtonClickCheck(){
         PhpStormPage.mainPagebuttonClick();
         assertEquals("https://www.jetbrains.com/", getDriver().getCurrentUrl(), "не верная ссылка");
     }
-
     @Test
     @DisplayName("Проверка нажатия кнопки 'загрузка'")
     public void ButtonDownloadPhpStormClickCheck(){
         PhpStormPage.ButtonDownloadPhpStormClick();
         assertEquals("https://www.jetbrains.com/phpstorm/download/#section=windows" , getDriver().getCurrentUrl(),"не верная ссылка");
     }
-
 }
