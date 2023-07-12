@@ -5,12 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 
 // page_url = https://www.jetbrains.com/go/
 public class GoLangPage {
+    private final Logger LOG = LoggerFactory.getLogger(IntellijIdeaPage.class);
+
     WebDriver driver;
 
     @FindBy(css = "a[data-test='button' ][href ='/go/download/download-thanks.html']")
@@ -22,14 +26,15 @@ public class GoLangPage {
     @FindBy(css = "a.follow__link")
     private List<WebElement> followLinks;
 
-    public Boolean checkIfDownloadButtonIsClickable() {
-        System.out.println("Проверка активности кнопки загрузки");
+    public Boolean checkIfDownloadButtonIsClickable(){
+        LOG.info("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
     }
 
     public String checkTextFreeDays() {
+        LOG.info("Проверка наличия текста");
         String value = freeDays.getText();
-        System.out.println("Получен текст: \"" + value + "\"");
+        LOG.info("Получен текст: \"" + value + "\"");
         return value;
     }
 
@@ -40,6 +45,7 @@ public class GoLangPage {
             System.out.println("Проверка ссылки " + link.getAttribute("href"));
             enabled &= link.isEnabled();
         }
+
         return enabled;
     }
 
