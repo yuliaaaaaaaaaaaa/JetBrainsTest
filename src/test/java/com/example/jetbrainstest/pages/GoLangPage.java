@@ -22,7 +22,7 @@ public class GoLangPage {
     @FindBy(css = "a.follow__link")
     private List<WebElement> followLinks;
 
-    public Boolean checkIfDownloadButtonIsClickable(){
+    public Boolean checkIfDownloadButtonIsClickable() {
         System.out.println("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
     }
@@ -33,11 +33,13 @@ public class GoLangPage {
         return value;
     }
 
-    public Boolean checkFollowLinksIsClickable(){
+    public Boolean checkFollowLinksIsClickable() {
         System.out.println("Проверка кликабельности кнопок подписки на иные ресурсы");
-        boolean enabled = false;
-        for (WebElement links : followLinks)
-            enabled = links.isEnabled() ? true : false;
+        boolean enabled = true;
+        for (WebElement link : followLinks) {
+            System.out.println("Проверка ссылки " + link.getAttribute("href"));
+            enabled &= link.isEnabled();
+        }
         return enabled;
     }
 
