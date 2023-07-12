@@ -27,6 +27,7 @@ public class DataGripTest extends BaseTest {
     @DisplayName("Тест: checkPageDataGripAndDownloadButtonComboBox - Проверка перехода на страницу и работы чекбосов кнопки Download")
     public void checkPageDataGripAndDownloadButtonComboBox(){
         dataGripPage.clickButtonDataGripDownload();
+        dataGripPage.waitSleep();
         assertEquals("https://www.jetbrains.com/datagrip/download/#section=windows",
                 getDriver().getCurrentUrl(), "Не удалось перейти на ожидаемую страницу!");
         assertFalse(dataGripPage.getComboBoxes().isEmpty(),"Список комбобоксов пустой");

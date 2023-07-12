@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.pages;
 
+import com.example.jetbrainstest.AllureLogger;
 import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,7 @@ public class DataGripPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
-    private final Logger LOG = LoggerFactory.getLogger(DataGripPage.class);
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(DataGripPage.class));
 
     @FindBy(xpath = "//a[contains(@class,'wt-button wt-button_mode_contrast')]")
     private WebElement downloadDataGripButton;
@@ -37,8 +38,6 @@ public class DataGripPage {
     @FindBy(xpath = "//button[@data-test='close-button']")
     private WebElement closeVideoButton;
 
-
-    @Step("ComboBox DataGrip button download")
     public List<WebElement> getComboBoxes() {
         downloadListResult.click();
         List<WebElement> comboBoxes = resultsComboBox;
@@ -50,33 +49,37 @@ public class DataGripPage {
 
     public void clickButtonDataGripDownload(){
         downloadDataGripButton.click();
+        LOG.info("Клик кнопки загрузки DataGripPage");
     }
 
     public void clickButtonTakeATour(){
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0, 700)", "");
         clickTakeATourButton.click();
+        LOG.info("Клик кнопки TakeATour");
     }
 
-    @Step("Проверка активности кнопки")
     public boolean checkTakeATourButton(){
         LOG.info("Проверка активности кнопки");
         return clickTakeATourButton.isEnabled();
     }
 
-    @Step("Play video button")
     public void clickPlayAndStopPlayer(){
         clickVideo.click();
+        LOG.info("Воспроизведение видео");
         waitSleep();
     }
 
-    public boolean isPlayerClosed(){return !closeVideoButton.isEnabled();}
+    public boolean isPlayerClosed(){
+        LOG.info("Закрытие плеера");
+        return !closeVideoButton.isEnabled();
+    }
 
     public void waitSleep(){WebDriverWait waits = new WebDriverWait(driver, Duration.ofSeconds(50));}
 
     public DataGripPage(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(100));
         PageFactory.initElements(driver, this);
     }
 
