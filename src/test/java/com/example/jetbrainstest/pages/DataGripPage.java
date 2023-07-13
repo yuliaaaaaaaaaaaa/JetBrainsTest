@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.pages;
 
+import com.example.jetbrainstest.AllureAttachmentsManager;
 import com.example.jetbrainstest.AllureLogger;
 import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
@@ -42,14 +43,14 @@ public class DataGripPage {
         downloadListResult.click();
         List<WebElement> comboBoxes = resultsComboBox;
         for (WebElement comboBox : comboBoxes) {
-            LOG.info("ComboBox DataGrip button download: " + comboBox.getText());
+            LOG.infoWithScreenshot("ComboBox DataGrip button download: " + comboBox.getText());
         }
         return comboBoxes;
     }
 
     public void clickButtonDataGripDownload(){
         downloadDataGripButton.click();
-        LOG.info("Клик кнопки загрузки DataGripPage");
+        LOG.infoWithScreenshot("Клик кнопки загрузки DataGripPage");
     }
 
     public void clickButtonTakeATour(){
@@ -60,7 +61,7 @@ public class DataGripPage {
     }
 
     public boolean checkTakeATourButton(){
-        LOG.info("Проверка активности кнопки");
+        LOG.infoWithScreenshot("Проверка активности кнопки");
         return clickTakeATourButton.isEnabled();
     }
 

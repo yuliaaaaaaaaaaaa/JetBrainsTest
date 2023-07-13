@@ -1,15 +1,17 @@
 package com.example.jetbrainstest.tests;
 
+import com.example.jetbrainstest.MyExtension;
 import com.example.jetbrainstest.pages.DataGripPage;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-
+@ExtendWith(MyExtension.class)
 public class DataGripTest extends BaseTest {
 
     private DataGripPage dataGripPage;
