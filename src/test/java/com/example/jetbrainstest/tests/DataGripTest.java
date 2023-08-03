@@ -191,6 +191,19 @@ public class DataGripTest extends BaseTest {
                 getDriver().getCurrentUrl(), "Не верная ссылка");
     }
 
+    @Test
+    @DisplayName("Тест: checkBusinessOrIndividualAndPricing - Проверка заголовка открытой страницы через FAQ в разделе Pricing")
+    public void checkBusinessOrIndividualAndPricing(){
+        dataGripPage.clickPricingButton();
+        dataGripPagePrice.clickPricingFaq();
+        dataGripPagePrice.clickBusinessOrIndividualClickLink();
+        generateEmail.switchToTab(2);
+
+        String expentedTitle = "What is the difference between commercial and personal licenses? – Licensing and Purchasing FAQ";
+        assertEquals(expentedTitle, dataGripPagePrice.checkTitlePageBusinessOrIndividual(),
+                "Заголовок страницы не совпадает с ожидаемым");
+    }
+
 
 
 }

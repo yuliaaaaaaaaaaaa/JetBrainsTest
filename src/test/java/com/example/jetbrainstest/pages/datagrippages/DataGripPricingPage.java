@@ -31,6 +31,12 @@ public class DataGripPricingPage {
     private WebElement priceMonthlyBillingAllProductsPack;
     @FindBy (xpath = "//a[@href='https://www.jetbrains.com/shop/buy?item=C:N:DB:Y']")
     private WebElement bayButton;
+    @FindBy (xpath = "//div[text()='FAQ']")
+    private WebElement faqButton;
+    @FindBy (xpath = "//a[normalize-space()='Business or Individual?']")
+    private WebElement linkTextBusinessOrIndividual;
+
+
 
     public DataGripPricingPage(WebDriver driver){ //Конструктор
         this.driver = driver;
@@ -75,7 +81,21 @@ public class DataGripPricingPage {
         bayButton.click();
         LOG.info("Клик по кнопки Bay");
     }
+    public void clickPricingFaq(){
+        faqButton.click();
+        LOG.info("Клик по кнопки Faq в разделе Subscription");
+    }
+    public void clickBusinessOrIndividualClickLink(){
+        linkTextBusinessOrIndividual.click();
+        LOG.info("Клик по текстовой ссылке Business Or Individual");
+    }
 
+    public String checkTitlePageBusinessOrIndividual(){
+        LOG.info("Проверка наличия title");
+        String actualTitle = driver.getTitle();
+        LOG.info("Получен текст title страницы: \"" + actualTitle + "\"");
+        return actualTitle;
+    }
 
 
 }
