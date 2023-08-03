@@ -185,6 +185,7 @@ public class DataGripTest extends BaseTest {
     @Test
     @DisplayName("Тест: checkOpenIdentificationEStore - Проверка открытие страницы индентификации")
     public void checkOpenIdentificationEStore(){
+        dataGripPage.clickPricingButton();
         dataGripPagePrice.clickBayButton();
         assertEquals("https://www.jetbrains.com/shop/customer",
                 getDriver().getCurrentUrl(), "Не верная ссылка");

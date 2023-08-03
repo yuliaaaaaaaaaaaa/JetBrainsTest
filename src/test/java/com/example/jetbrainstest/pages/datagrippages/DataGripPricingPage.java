@@ -29,7 +29,7 @@ public class DataGripPricingPage {
 
     @FindBy (xpath = "//div[contains(text(),'US $77.90')]")
     private WebElement priceMonthlyBillingAllProductsPack;
-    @FindBy (xpath = "//a[@href='https://www.jetbrains.com/shop/buy?item=P:N:DB:Y']")
+    @FindBy (xpath = "//a[@href='https://www.jetbrains.com/shop/buy?item=C:N:DB:Y']")
     private WebElement bayButton;
 
     public DataGripPricingPage(WebDriver driver){ //Конструктор
