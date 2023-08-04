@@ -10,87 +10,123 @@ import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
+/**
+ * URL страницы https://www.jetbrains.com/datagrip/buy/#commercial
+ * Конструктор DataGripPricingPage
+ * Автор @markuma13
+ */
 public class DataGripPricingPage {
     private final WebDriver driver;
     private WebDriverWait wait;
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(DataGripPage.class));
 
-    @FindBy (xpath = "//div[contains(text(),'US $229.00')]")
+    @FindBy(xpath = "(//div[@class='nowrap rs-subtitle-2 rs-subtitle-2_theme_light'])[1]")
     private WebElement priceYearlyBillingDataGrip;
-
-    @FindBy (xpath = "//div[contains(text(),'US $779.00')]")
+    @FindBy(xpath = "(//div[@class='nowrap rs-subtitle-2 rs-subtitle-2_theme_light'])[2]")
     private WebElement priceYearlyBillingAllProductsPack;
-
-    @FindBy (xpath = "(//span[@data-test='switcher']//button)[2]")
+    @FindBy(xpath = "(//span[@data-test='switcher']//button)[2]")
     private WebElement switchPriceTariff;
-
-    @FindBy (xpath = "//div[contains(text(),'US $22.90')]")
+    @FindBy(xpath = "(//div[@class='nowrap rs-subtitle-2 rs-subtitle-2_theme_light'])[1]")
     private WebElement priceMonthlyBillingDataGrip;
-
-    @FindBy (xpath = "//div[contains(text(),'US $77.90')]")
+    @FindBy(xpath = "(//div[@class='nowrap rs-subtitle-2 rs-subtitle-2_theme_light'])[2]")
     private WebElement priceMonthlyBillingAllProductsPack;
-    @FindBy (xpath = "//a[@href='https://www.jetbrains.com/shop/buy?item=C:N:DB:Y']")
+    @FindBy(xpath = "//a[@href='https://www.jetbrains.com/shop/buy?item=C:N:DB:Y']")
     private WebElement bayButton;
-    @FindBy (xpath = "//div[text()='FAQ']")
+    @FindBy(xpath = "//div[text()='FAQ']")
     private WebElement faqButton;
-    @FindBy (xpath = "//a[normalize-space()='Business or Individual?']")
+    @FindBy(xpath = "//a[normalize-space()='Business or Individual?']")
     private WebElement linkTextBusinessOrIndividual;
+    @FindBy(xpath = "//a[normalize-space()='Subscription Options']")
+    private WebElement linkTextSubscriptionOptions;
+    @FindBy(xpath = "//a[normalize-space()='JetBrains for Business']")
+    private WebElement linkTextJetBrainsForBusiness;
+    @FindBy(xpath = "//a[@data-test='buy-page-faq-purchase-terms']")
+    private WebElement linkTextPurchaseTerms;
+    @FindBy(xpath = "//a[normalize-space()='F.A.Q.']")
+    private WebElement linkTextFaq;
+    @FindBy(xpath = "//a[contains(text(),'Contact Sales')]")
+    private WebElement linkTextContactSales;
 
-
-
-    public DataGripPricingPage(WebDriver driver){ //Конструктор
+    public DataGripPricingPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(100));
         PageFactory.initElements(driver, this);
     }
 
-    public String checkPriceDataGripBasesBiling(){
-        LOG.info("Проверка наличия текста");
+    public String checkPriceDataGripBasesBiling() {
+        LOG.info("Проверка наличия суммы тарифа");
         String value = priceYearlyBillingDataGrip.getText();
         LOG.info("Получен текст базовой годовой суммы: \"" + value + "\"");
         return value;
     }
 
-    public String checkPriceAllProductsPack(){
-        LOG.info("Проверка наличия текста");
+    public String checkPriceAllProductsPack() {
+        LOG.info("Проверка наличия суммы тарифа");
         String value = priceYearlyBillingAllProductsPack.getText();
         LOG.info("Получен текст полного пакета годовой суммы: \"" + value + "\"");
         return value;
     }
 
-    public void clickSwitchTariff(){
+    public void clickSwitchTariff() {
         LOG.info("Переключение тарифа");
         switchPriceTariff.click();
     }
 
-    public String checkPriceMonthlyBillingDataGrip(){
-        LOG.info("Проверка наличия текста");
+    public String checkPriceMonthlyBillingDataGrip() {
+        LOG.info("Проверка суммы тарифа");
         String value = priceMonthlyBillingDataGrip.getText();
         LOG.info("Получен текст месячной базовой суммы: \"" + value + "\"");
         return value;
     }
 
-    public String checkPriceMonthlyBillingAllProductsPack(){
-        LOG.info("Проверка наличия текста");
+    public String checkPriceMonthlyBillingAllProductsPack() {
+        LOG.info("Проверка суммы тарифа");
         String value = priceMonthlyBillingAllProductsPack.getText();
         LOG.info("Получен текст месячного пакета сумма: \"" + value + "\"");
         return value;
     }
 
-    public void clickBayButton(){
+    public void clickBayButton() {
         bayButton.click();
         LOG.info("Клик по кнопки Bay");
     }
-    public void clickPricingFaq(){
+
+    public void clickPricingFaq() {
         faqButton.click();
         LOG.info("Клик по кнопки Faq в разделе Subscription");
     }
-    public void clickBusinessOrIndividualClickLink(){
+
+    public void clickLickBusinessOrIndividual() {
         linkTextBusinessOrIndividual.click();
         LOG.info("Клик по текстовой ссылке Business Or Individual");
     }
 
-    public String checkTitlePageBusinessOrIndividual(){
+    public void clickLinkSubscriptionOptions() {
+        linkTextSubscriptionOptions.click();
+        LOG.info("Клик по текстовой ссылке Subscripti on Options");
+    }
+
+    public void clickLinkJetBrainsForBusiness() {
+        linkTextJetBrainsForBusiness.click();
+        LOG.info("Клик по текстовой ссылке JetBrains For Business");
+    }
+
+    public void clickLinkPurchaseTerms() {
+        linkTextPurchaseTerms.click();
+        LOG.info("Клик по текстовой ссылке Purchase Terms");
+    }
+
+    public void clickLinkFaq() {
+        linkTextFaq.click();
+        LOG.info("Клик по текстовой ссылке FAQ");
+    }
+
+    public void clickLinkContactSales() {
+        linkTextContactSales.click();
+        LOG.info("Клик по текстовой ссылке Contact Sales");
+    }
+
+    public String checkTitlePage() {
         LOG.info("Проверка наличия title");
         String actualTitle = driver.getTitle();
         LOG.info("Получен текст title страницы: \"" + actualTitle + "\"");

@@ -8,10 +8,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
+
 import java.time.Duration;
 import java.util.List;
 
-//page_url = https://www.jetbrains.com/datagrip/
+/**
+ * URL страницы https://www.jetbrains.com/datagrip/
+ * Конструктор DataGripPage
+ * Автор @markuma13
+ */
 public class DataGripPage {
 
     private WebDriver driver;
@@ -21,59 +26,44 @@ public class DataGripPage {
 
     @FindBy(xpath = "//a[contains(@class,'wt-button wt-button_mode_contrast')]")
     private WebElement downloadDataGripButton;
-
     @FindBy(xpath = "//button[text()='Take a tour']")
     private WebElement clickTakeATourButton;
-
     @FindBy(xpath = "//button[normalize-space()='.exe']")
     private WebElement downloadListResult;
-
     @FindBy(xpath = "//div[@data-focus-lock-disabled='false']")
-    private List <WebElement> resultsComboBox;
-
+    private List<WebElement> resultsComboBox;
     @FindBy(xpath = "//button[@data-test='youtube-player-button']")
     private WebElement clickVideo;
-
     @FindBy(xpath = "//button[@data-test='close-button']")
     private WebElement closeVideoButton;
-
     @FindBy(xpath = "//a[normalize-space()='Discover all features']")
     private WebElement discoverAllFeaturesButton;
-
     @FindBy(xpath = "//span[normalize-space()='.exe (Windows)']")
     private WebElement exeWindows;
-
-    @FindBy (xpath = "//input[@placeholder='Email']")
+    @FindBy(xpath = "//input[@placeholder='Email']")
     private WebElement fieldEmail;
-
-    @FindBy (xpath = "//div[@data-test='error-message']")
+    @FindBy(xpath = "//div[@data-test='error-message']")
     private WebElement validateErrorFieldEmail;
-
-    @FindBy (xpath = "//button[normalize-space()='Submit']")
+    @FindBy(xpath = "//button[normalize-space()='Submit']")
     private WebElement buttonSubmit;
-
-    @FindBy (css = "[data-test=\"error-message\"]")
+    @FindBy(css = "[data-test=\"error-message\"]")
+    public WebElement messageEnteringInvalidEmail;
+    @FindBy(xpath = "//p[text()='Tell me about new product features as they come out']/following-sibling::p")
     public WebElement messageEnteringValidEmail;
-
-    @FindBy (xpath = "(//*[name()='svg'][@class='wt-icon wt-icon_theme_light wt-icon_size_xs wt-privacy-notice__info-icon'])")
+    @FindBy(xpath = "(//*[name()='svg'][@class='wt-icon wt-icon_theme_light wt-icon_size_xs wt-privacy-notice__info-icon'])")
     public WebElement moveTooltipElement;
-
-    @FindBy (xpath = "//span[normalize-space()='View sample newsletter']")
+    @FindBy(xpath = "//span[normalize-space()='View sample newsletter']")
     private WebElement linkTextVSN;
-
-    @FindBy (xpath = "//p[contains(text(),'For DataGrip 2023.1, we focused entirely on qualit')]")
+    @FindBy(xpath = "//p[contains(text(),'For DataGrip 2023.1, we focused entirely on qualit')]")
     private WebElement getTextViewSample;
-
-    @FindBy (css = "img[height='325']")
+    @FindBy(css = "img[height='325']")
     private WebElement imgDataGripRelease;
-
-    @FindBy (css = "div[id='js-menu-second'] a:nth-child(7)")
+    @FindBy(css = "div[id='js-menu-second'] a:nth-child(7)")
     private WebElement downloadButtonCap;
-
-    @FindBy (xpath = "(//a[@href='/datagrip/buy/'])[2]")
+    @FindBy(xpath = "(//a[@href='/datagrip/buy/'])[2]")
     private WebElement pricingButtonCap;
 
-    public DataGripPage(WebDriver driver){ //Конструктор
+    public DataGripPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
         this.actions = new Actions(driver);
@@ -89,77 +79,77 @@ public class DataGripPage {
         return comboBoxes;
     }
 
-    public void clickImgDataGripRelease(){
+    public void clickImgDataGripRelease() {
         imgDataGripRelease.click();
         LOG.info("Клик по изоброжению на странице релиза");
     }
 
-    public void clickButtonDataGripDownload(){
+    public void clickButtonDataGripDownload() {
         downloadDataGripButton.click();
         LOG.infoWithScreenshot("Клик кнопки загрузки DataGripPage");
     }
 
-    public void clickButtonTakeATour(){
+    public void clickButtonTakeATour() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0, 700)", "");
         clickTakeATourButton.click();
         LOG.info("Клик кнопки TakeATour");
     }
 
-    public boolean checkTakeATourButton(){
+    public boolean checkTakeATourButton() {
         LOG.info("Проверка активности кнопки");
         return clickTakeATourButton.isEnabled();
     }
 
-    public Boolean checkIfDownloadButtonIsClickableCap(){
+    public Boolean checkIfDownloadButtonIsClickableCap() {
         LOG.info("Проверка активности кнопки загрузки");
         return downloadButtonCap.isEnabled();
     }
 
-    public Boolean checkIfPricingButtonIsClickableCap(){
+    public Boolean checkIfPricingButtonIsClickableCap() {
         LOG.info("Проверка активности кнопки Pricing");
         return pricingButtonCap.isEnabled();
     }
 
-    public void clickPricingButton(){
+    public void clickPricingButton() {
         pricingButtonCap.click();
         LOG.info("Клик на кнопку Pricing");
     }
 
-    public void clickLinkTextVSN(){
+    public void clickLinkTextVSN() {
         linkTextVSN.click();
         LOG.info("Клик по тексту View sample newsletter");
     }
 
-    public String checkGetTextViewSampleOpen(){
+    public String checkGetTextViewSampleOpen() {
         LOG.info("Проверка наличия текста");
         String value = getTextViewSample.getText();
         LOG.info("Получен текст: \"" + value + "\"");
         return value;
     }
 
-    public boolean checkButtonExeWindowsComboBox(){
+    public boolean checkButtonExeWindowsComboBox() {
         LOG.infoWithScreenshot("Проверка активаности кнопки exe.Windows в чекбоксе");
         return exeWindows.isEnabled();
     }
 
-    public void clickPlayAndStopPlayer(){
+    public void clickPlayAndStopPlayer() {
         clickVideo.click();
         LOG.info("Воспроизведение видео");
         waitSleep();
     }
 
-    public boolean isPlayerClosed(){
+    public boolean isPlayerClosed() {
         LOG.info("Закрытие плеера");
         return !closeVideoButton.isEnabled();
     }
 
-    public void clickDiscoverButton(){
+    public void clickDiscoverButton() {
         discoverAllFeaturesButton.click();
         LOG.info("Клик на кнопку Discover all features");
     }
 
-    public void enterEmail (String email){
+    public void enterEmail(String email) {
         LOG.info("Ввод email");
         fieldEmail.sendKeys(email);
         buttonSubmit.click();
@@ -179,10 +169,10 @@ public class DataGripPage {
     public String enterInvalidEmailGetText(String email) {
         enterEmail(email);
         LOG.infoWithScreenshot("Получение сообщения при вводе не валидного email");
-        return messageEnteringValidEmail.getText();
+        return messageEnteringInvalidEmail.getText();
     }
 
-    public void clickLinkPartyServices(){
+    public void clickLinkPartyServices() {
         WebElement linkPartyServices = driver.findElement(By.xpath("//a[normalize-space()='third-party services']"));
         wait.until(ExpectedConditions.visibilityOf(moveTooltipElement));
         LOG.info("Прошли ожидание элементов");
@@ -192,13 +182,16 @@ public class DataGripPage {
         LOG.info("Открытие страницы third-parties через Tooltip");
     }
 
-    public void waitSleep(){WebDriverWait waits = new WebDriverWait(driver, Duration.ofSeconds(50));}
+    public void waitSleep() {
+        WebDriverWait waits = new WebDriverWait(driver, Duration.ofSeconds(50));
+    }
 
-    public void waitSoon(){
+    public void waitSoon(int waitTimeInSeconds) {
         try {
-            Thread.sleep(4000);
+            Thread.sleep(waitTimeInSeconds * 1000);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            LOG.info("Ошибка ожидания: " + e.getMessage());
+            Thread.currentThread().interrupt();
         }
     }
 
