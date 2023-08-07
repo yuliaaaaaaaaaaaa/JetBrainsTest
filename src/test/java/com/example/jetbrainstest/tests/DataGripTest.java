@@ -11,11 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import java.awt.*;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
-
 import static com.example.jetbrainstest.pages.datagrippages.GenerateEmailPage.getClipboardText;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -93,7 +90,7 @@ public class DataGripTest extends BaseTest {
 
     @Test
     @DisplayName("Проверка сообщение на почте после подписки на новости")
-    public void checkMessageMailAfterSubscribingNews() throws IOException, UnsupportedFlavorException, AWTException {
+    public void checkMessageMailAfterSubscribingNews() throws IOException, UnsupportedFlavorException {
         generateEmail.openPageInNewTag();
         generateEmail.copiedButtonEmail();
         generateEmail.tabBack();

@@ -16,13 +16,13 @@ import java.time.Duration;
 import java.util.Set;
 
 /**
- * URL страницы генерации email &lt;a href=https://tempmail.plus/ru/#!
+ * URL страницы генерации email &lt;a href=<a href="https://tempmail.plus/ru/#">...</a>!
  * Конструктор GenerateEmailPage
  * Автор @markuma13
  */
 public class GenerateEmailPage {
     private final WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(DataGripPage.class));
 
     @FindBy(xpath = "//button[@id='pre_copy']")
@@ -94,7 +94,7 @@ public class GenerateEmailPage {
         }
     }
 
-    public static String getClipboardText() throws AWTException, IOException, UnsupportedFlavorException {
+    public static String getClipboardText() throws IOException, UnsupportedFlavorException {
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         return (String) clipboard.getData(DataFlavor.stringFlavor);
     }
