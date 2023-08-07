@@ -34,7 +34,7 @@ public class DataGripTest extends BaseTest {
 
     @BeforeEach
     @Override
-    @Step("Переход в раздел Idea")
+    @Step("Переход на страницу DataGrip")
     public void setUp() {
         super.setUp();
         getDriver().get("https://www.jetbrains.com/datagrip/");
@@ -44,7 +44,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkPageDataGripAndDownloadButtonComboBox - Проверка перехода на страницу и работы чекбосов кнопки Download")
+    @DisplayName("Проверка перехода на страницу и работы чекбосов кнопки Download")
     public void checkPageDataGripAndDownloadButtonComboBox() {
         dataGripPage.clickButtonDataGripDownload();
         dataGripPage.waitSleep();
@@ -54,7 +54,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: playVideoButtonTakeATour - Проверка открытие и закрытие видеоплеера")
+    @DisplayName("Проверка открытие и закрытие видеоплеера")
     public void playVideoButtonTakeATour() {
         assertTrue(dataGripPage.checkTakeATourButton(), "Кнопка не активна");
         dataGripPage.clickButtonTakeATour();
@@ -63,14 +63,14 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: activeDiscoveryPage - проверка открытия страницы")
+    @DisplayName("Проверка открытия страницы")
     public void activeDiscoveryPage() {
         dataGripPage.clickDiscoverButton();
         assertEquals("https://www.jetbrains.com/datagrip/features/", getDriver().getCurrentUrl(), "Не верная ссылка");
     }
 
     @Test
-    @DisplayName("Тест: checkPageDataGripComboBox - проверка комбобоксов и активности кнопки exe.Windows")
+    @DisplayName("Проверка комбобоксов и активности кнопки exe.Windows")
     public void checkPageDataGripComboBox() {
         assertFalse(dataGripPage.getComboBoxes().isEmpty(), "Список комбобоксов пустой");
         dataGripPage.waitSleep();
@@ -78,7 +78,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkPageWhatSnewComboBox - Проверка открытие страницы через баннер и активность ComboBox")
+    @DisplayName("Проверка открытие страницы через баннер и активность ComboBox")
     public void checkPageWhatSnewComboBox() {
         dataGripPage.clickLinkTextVSN();
         generateEmail.switchToTab(2);
@@ -92,7 +92,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkMessageMailAfterSubscribingNews - Проверка сообщение на почте после подписки на новости")
+    @DisplayName("Проверка сообщение на почте после подписки на новости")
     public void checkMessageMailAfterSubscribingNews() throws IOException, UnsupportedFlavorException, AWTException {
         generateEmail.openPageInNewTag();
         generateEmail.copiedButtonEmail();
@@ -115,7 +115,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: invalidCheckValedateEmail - Ввод пустого email")
+    @DisplayName("Проверка ввода пустого email")
     public void invalidCheckValedateEmail() {
         String emptyEmail = dataGripPage.enterInvalidEmailGetText("");
         assertEquals(emptyEmail, "This field is required.", "Неккоректный текст сообщения валидации");
@@ -132,7 +132,7 @@ public class DataGripTest extends BaseTest {
 
 
     @Test
-    @DisplayName("Тест: tooltipVisabilityElementsClickPartyServices - Проверка открытия страницы third-parties через tooltip")
+    @DisplayName("Проверка открытия страницы third-parties через tooltip")
     public void tooltipVisabilityElementsClickPartyServices() {
         dataGripPage.clickLinkPartyServices();
         generateEmail.switchToTab(1);
@@ -141,7 +141,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkLinkTextVSN - Проверка открытие страницы релиза и ожидаемого на нем текста")
+    @DisplayName("Проверка открытие страницы релиза и ожидаемого на нем текста")
     public void checkLinkTextVSN() {
         dataGripPage.clickLinkTextVSN();
         generateEmail.switchToTab(2);
@@ -152,20 +152,20 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkActivityButtonDownloadCap - Проверка активаности кнопки Download в шапке")
+    @DisplayName("Проверка активаности кнопки Download в шапке")
     public void checkActivityButtonDownloadCap() {
         assertTrue(dataGripPage.checkIfDownloadButtonIsClickableCap(), "Кнопка скачивания не активна");
     }
 
     @Test
-    @DisplayName("Тест: checkActivityButtonPricingCap - Проверка активаности кнопки Pricing в шапке")
+    @DisplayName("Проверка активаности кнопки Pricing в шапке")
     public void checkActivityButtonPricingCap() {
         assertTrue(dataGripPage.checkIfPricingButtonIsClickableCap(), "Кнопка скачивания не активна");
         dataGripPage.clickPricingButton();
     }
 
     @Test
-    @DisplayName("Тест: checkPricesPageDataGrip - Проверка сумм продуктов на страницы цен")
+    @DisplayName("Проверка сумм продуктов на страницы цен")
     public void checkPricesPageDataGrip() {
         dataGripPage.clickPricingButton();
         assertEquals("https://www.jetbrains.com/datagrip/buy/#commercial",
@@ -187,7 +187,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkOpenIdentificationEStore - Проверка открытие страницы индентификации")
+    @DisplayName("Проверка открытие страницы индентификации")
     public void checkOpenIdentificationEStore() {
         dataGripPage.clickPricingButton();
         dataGripPagePrice.clickBayButton();
@@ -196,8 +196,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkBusinessOrIndividualAndPricing - " +
-            "Проверка заголовка открытой страницы Business Or Individual через FAQ в разделе Pricing")
+    @DisplayName("Проверка заголовка открытой страницы Business Or Individual через FAQ в разделе Pricing")
     public void checkBusinessOrIndividualAndPricing() {
         dataGripPage.clickPricingButton();
         dataGripPagePrice.clickPricingFaq();
@@ -210,8 +209,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkSubscriptionOptions - " +
-            "Проверка заголовка открытой страницы Subscription Options через FAQ в разделе Pricing")
+    @DisplayName("Проверка заголовка открытой страницы Subscription Options через FAQ в разделе Pricing")
     public void checkSubscriptionOptions() {
         dataGripPage.clickPricingButton();
         dataGripPagePrice.clickPricingFaq();
@@ -224,8 +222,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkBrainsForBusiness - " +
-            "Проверка заголовка открытой страницы JetBrains For Business через FAQ в разделе Pricing")
+    @DisplayName("Проверка заголовка открытой страницы JetBrains For Business через FAQ в разделе Pricing")
     public void checkJetBrainsForBusiness() {
         dataGripPage.clickPricingButton();
         dataGripPagePrice.clickPricingFaq();
@@ -238,8 +235,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkPurchaseTerms - " +
-            "Проверка заголовка открытой страницы Purchase Terms через FAQ в разделе Pricing")
+    @DisplayName("Проверка заголовка открытой страницы Purchase Terms через FAQ в разделе Pricing")
     public void checkPurchaseTerms() {
         dataGripPage.clickPricingButton();
         dataGripPagePrice.clickPricingFaq();
@@ -252,8 +248,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkLicensingAndPurchasing - " +
-            "Проверка заголовка открытой страницы Licensing And Purchasing через FAQ в разделе Pricing")
+    @DisplayName("Проверка заголовка открытой страницы Licensing And Purchasing через FAQ в разделе Pricing")
     public void checkLicensingAndPurchasing() {
         dataGripPage.clickPricingButton();
         dataGripPagePrice.clickPricingFaq();
@@ -266,8 +261,7 @@ public class DataGripTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест: checkContactSales - " +
-            "Проверка заголовка открытой страницы Contact Sale через FAQ в разделе Pricing")
+    @DisplayName("Проверка заголовка открытой страницы Contact Sale через FAQ в разделе Pricing")
     public void checkContactSales() {
         dataGripPage.clickPricingButton();
         dataGripPagePrice.clickPricingFaq();

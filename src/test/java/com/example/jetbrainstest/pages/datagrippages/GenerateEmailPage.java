@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
-
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -73,9 +72,9 @@ public class GenerateEmailPage {
             }
             throw new NoSuchElementException("Новая вкладка не была найдена");
         } catch (NoSuchElementException e) {
-            LOG.info("Ошибка: " + e.getMessage());
+            LOG.error("Ошибка: " + e.getMessage());
         } catch (Exception e) {
-            LOG.info("Произошла ошибка: " + e.getMessage());
+            LOG.error("Произошла ошибка: " + e.getMessage());
         }
     }
 
