@@ -16,7 +16,7 @@ import java.time.Duration;
 import java.util.Set;
 
 /**
- * URL страницы генерации email https://tempmail.plus/ru/#!
+ * URL страницы генерации email <a href=https://tempmail.plus/ru/#!
  * Конструктор GenerateEmailPage
  * Автор @markuma13
  */
