@@ -11,8 +11,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
+
 import static com.example.jetbrainstest.pages.datagrippages.GenerateEmailPage.getClipboardText;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -187,7 +189,7 @@ public class DataGripTest extends BaseTest {
     @DisplayName("Проверка открытие страницы индентификации")
     public void checkOpenIdentificationEStore() {
         dataGripPage.clickPricingButton();
-        dataGripPagePrice.clickBayButton();
+        dataGripPagePrice.clickBuyButton();
         assertEquals("https://www.jetbrains.com/shop/customer",
                 getDriver().getCurrentUrl(), "Не верная ссылка");
     }

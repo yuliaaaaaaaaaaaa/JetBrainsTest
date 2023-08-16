@@ -11,13 +11,13 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 
 /**
- * URL страницы https://www.jetbrains.com/datagrip/buy/#commercial
+ * URL страницы &lt;a href=<a href="https://www.jetbrains.com/datagrip/buy/#commercial">...</a>!
  * Конструктор DataGripPricingPage
  * Автор @markuma13
  */
 public class DataGripPricingPage {
     private final WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(DataGripPage.class));
 
     @FindBy(xpath = "(//div[@class='nowrap rs-subtitle-2 rs-subtitle-2_theme_light'])[1]")
@@ -31,7 +31,7 @@ public class DataGripPricingPage {
     @FindBy(xpath = "(//div[@class='nowrap rs-subtitle-2 rs-subtitle-2_theme_light'])[2]")
     private WebElement priceMonthlyBillingAllProductsPack;
     @FindBy(xpath = "//a[@href='https://www.jetbrains.com/shop/buy?item=C:N:DB:Y']")
-    private WebElement bayButton;
+    private WebElement buyButton;
     @FindBy(xpath = "//div[text()='FAQ']")
     private WebElement faqButton;
     @FindBy(xpath = "//a[normalize-space()='Business or Individual?']")
@@ -42,7 +42,7 @@ public class DataGripPricingPage {
     private WebElement linkTextJetBrainsForBusiness;
     @FindBy(xpath = "//a[@data-test='buy-page-faq-purchase-terms']")
     private WebElement linkTextPurchaseTerms;
-    @FindBy(xpath = "//a[normalize-space()='F.A.Q.']")
+    @FindBy(xpath = "//a[@data-test='buy-page-faq-faq']")
     private WebElement linkTextFaq;
     @FindBy(xpath = "//a[contains(text(),'Contact Sales')]")
     private WebElement linkTextContactSales;
@@ -86,8 +86,8 @@ public class DataGripPricingPage {
         return value;
     }
 
-    public void clickBayButton() {
-        bayButton.click();
+    public void clickBuyButton() {
+        buyButton.click();
         LOG.info("Клик по кнопки Bay");
     }
 
