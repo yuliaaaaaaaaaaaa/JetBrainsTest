@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,20 +24,22 @@ public class AllProductsPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+    @Step("Проверка активности кнопки загрузки")
     public Boolean checkIfDownloadButtonIsClickable(){
         LOG.info("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
     }
+    @Step("Проверка наличия кнопки Buy")
     public Boolean checkIfBuyButtonEnabled(){
         LOG.info("Проверка наличия кнопки Buy");
         return buyButton.isEnabled();
     }
-
+    @Step("Нажатие на кнопку Buy")
     public void buyButtonClick(){
         LOG.info("Нажатие на кнопку Buy");
         buyButton.click();
     }
-
+    @Step("Перешли на вкладку №{num}")
     public void switchToStoreTab(int num){
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(num-1));
