@@ -24,21 +24,21 @@ public class AllProductsPage {
         PageFactory.initElements(driver, this);
     }
     public Boolean checkIfDownloadButtonIsClickable(){
-        LOG.info("Проверка активности кнопки загрузки");
+        LOG.infoWithScreenshot("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
     }
     public Boolean checkIfBuyButtonEnabled(){
-        LOG.info("Проверка наличия кнопки Buy");
+        LOG.infoWithScreenshot("Проверка наличия кнопки Buy");
         return buyButton.isEnabled();
     }
     public void buyButtonClick(){
-        LOG.info("Нажатие на кнопку Buy");
+        LOG.infoWithScreenshot("Нажатие на кнопку Buy");
         buyButton.click();
     }
     public void switchToStoreTab(int num){
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(num-1));
-        LOG.info("Перешли на вкладку №" + (num));
+        LOG.infoWithScreenshot("Перешли на вкладку №" + (num));
     }
 
 

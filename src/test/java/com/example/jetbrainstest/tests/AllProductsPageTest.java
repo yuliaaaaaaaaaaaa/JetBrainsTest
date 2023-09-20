@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.tests;
 
+import com.example.jetbrainstest.AllureAttachmentsManager;
 import com.example.jetbrainstest.pages.AllProductsPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -25,6 +26,7 @@ public class AllProductsPageTest extends BaseTest {
     @DisplayName("Наличие кнопки Buy")
     public void buyButtonCheck(){
         assertTrue(AllProductsPage.checkIfBuyButtonEnabled(),"Кнопка Buy не доступна");
+        AllureAttachmentsManager.screenshot();
     }
 
     @Test
@@ -33,5 +35,6 @@ public class AllProductsPageTest extends BaseTest {
         AllProductsPage.buyButtonClick();
         AllProductsPage.switchToStoreTab(1);
         assertEquals("https://www.jetbrains.com/store/#commercial", getDriver().getCurrentUrl(), "Открылась неверная ссылка");
+        AllureAttachmentsManager.screenshot();
     }
 }
