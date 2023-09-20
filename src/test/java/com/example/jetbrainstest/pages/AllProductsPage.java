@@ -16,28 +16,32 @@ public class AllProductsPage {
     @FindBy(css = "a[data-test='button' ][href ='/idea/buy/']")
     private WebElement downloadButton;
 
-    @FindBy(css="#js-menu-second-desktop > a")
+    @FindBy(css = "#js-menu-second-desktop > a")
     private WebElement buyButton;
 
     public AllProductsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public Boolean checkIfDownloadButtonIsClickable(){
+
+    public Boolean checkIfDownloadButtonIsClickable() {
         LOG.infoWithScreenshot("Проверка активности кнопки загрузки");
         return downloadButton.isEnabled();
     }
-    public Boolean checkIfBuyButtonEnabled(){
+
+    public Boolean checkIfBuyButtonEnabled() {
         LOG.infoWithScreenshot("Проверка наличия кнопки Buy");
         return buyButton.isEnabled();
     }
-    public void buyButtonClick(){
+
+    public void buyButtonClick() {
         LOG.infoWithScreenshot("Нажатие на кнопку Buy");
         buyButton.click();
     }
-    public void switchToStoreTab(int num){
+
+    public void switchToStoreTab(int num) {
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(num-1));
+        driver.switchTo().window(tabs.get(num - 1));
         LOG.infoWithScreenshot("Перешли на вкладку №" + (num));
     }
 
