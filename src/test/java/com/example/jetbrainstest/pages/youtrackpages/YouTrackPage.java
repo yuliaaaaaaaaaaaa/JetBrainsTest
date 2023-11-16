@@ -1,13 +1,17 @@
 package com.example.jetbrainstest.pages.youtrackpages;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 // https://www.jetbrains.com/youtrack/
 public class YouTrackPage {
 
+    private final Logger LOG = LoggerFactory.getLogger(YouTrackPage.class);
     WebDriver driver;
 
     @FindBy(xpath = "//a[@href='/youtrack/whatsnew/']")
@@ -32,37 +36,37 @@ public class YouTrackPage {
     private WebElement PricingButton;
 
     public Boolean checkIfWhatsNewButtonIsClickable(){
-        System.out.println("Проверка кликабельности кнопки What's New");
+        LOG.info("Проверка кликабельности кнопки What's New");
         return  WhatsNewButton.isEnabled();
     }
 
     public Boolean checkIfAgileButtonIsClickable(){
-        System.out.println("Проверка кликабельности кнопки Agile");
+        LOG.info("Проверка кликабельности кнопки Agile");
         return  AgileButton.isEnabled();
     }
 
     public Boolean checkIfTeamsButtonIsClickable(){
-        System.out.println("Проверка кликабельности кнопки Teams");
+        LOG.info("Проверка кликабельности кнопки Teams");
         return  TeamsButton.isEnabled();
     }
 
     public Boolean checkIfFeaturesButtonIsClickable(){
-        System.out.println("Проверка кликабельности кнопки Features");
+        LOG.info("Проверка кликабельности кнопки Features");
         return  FeaturesButton.isEnabled();
     }
 
     public Boolean checkIfHelpdeskButtonIsClickable(){
-        System.out.println("Проверка кликабельности кнопки Helpdesk");
+        LOG.info("Проверка кликабельности кнопки Helpdesk");
         return  HelpdeskButton.isEnabled();
     }
 
     public Boolean checkIfSupportButtonIsClickable(){
-        System.out.println("Проверка кликабельности кнопки Support");
+        LOG.info("Проверка кликабельности кнопки Support");
         return  SupportButton.isEnabled();
     }
 
     public Boolean checkIfPricingButtonIsClickable(){
-        System.out.println("Проверка кликабельности кнопки Pricing");
+        LOG.info("Проверка кликабельности кнопки Pricing");
         return  PricingButton.isEnabled();
     }
 
