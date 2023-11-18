@@ -1,6 +1,5 @@
 package com.example.jetbrainstest.pages.youtrackpages;
 
-
 import com.example.jetbrainstest.AllureLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,7 +35,7 @@ public class YouTrackPage {
     private WebElement PricingButton;
 
     public Boolean checkIfWhatsNewButtonIsClickable(){
-        LOG.info("Проверка кликабельности кнопки What's New");
+        LOG.infoWithScreenshot("Проверка кликабельности кнопки What's New");
         return  WhatsNewButton.isEnabled();
     }
 
