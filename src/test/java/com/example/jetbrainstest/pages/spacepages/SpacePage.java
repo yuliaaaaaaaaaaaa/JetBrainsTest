@@ -7,10 +7,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.Duration;
 
 // page_url = https://www.jetbrains.com/space
 public class SpacePage {
+    private final Logger LOG = LoggerFactory.getLogger(SpacePage.class);
     WebDriver driver;
     @FindBy(css = "._siteLogo__image_nnydt:first-child")
     private WebElement logoButton;
@@ -61,7 +65,7 @@ public class SpacePage {
 
     public void clickLogoButton(){
         logoButton.click();
-        System.out.println("Кликнули по кнопке лого");
+        LOG.info("Кликнули по кнопке лого");
     }
 
     public Boolean isDisplayedDevToolsButton(){
@@ -70,39 +74,39 @@ public class SpacePage {
 
     public Boolean isDisplTopMenu(){
         devToolsButton.click();
-        System.out.println("Кликнули по кнопке " + devToolsButton.getText());
+        LOG.info("Кликнули по кнопке " + devToolsButton.getText());
         return topMenu.isDisplayed();
     }
 
     public String getOpacityOnFocusTeamToolsButton(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         devToolsButton.sendKeys(Keys.TAB);
-        System.out.println("Установили фокус на кнопке " + teamToolsButton.getText());
+        LOG.info("Установили фокус на кнопке " + teamToolsButton.getText());
         wait.until(ExpectedConditions.attributeToBe(teamToolsButton,"opacity","1"));
         return teamToolsButton.getCssValue("opacity");
     }
 
     public Boolean isDisplayedRusLangButton(){
         langMenuButton.click();
-        System.out.println("Кликнули по кнопке выбора языка");
+        LOG.info("Кликнули по кнопке выбора языка");
         return rusLangButton.isDisplayed();
     }
 
     public Boolean isDisplayedEmptyFieldError(){
         submitButton.click();
-        System.out.println("Кликнули по кнопке " + submitButton.getText());
+        LOG.info("Кликнули по кнопке " + submitButton.getText());
         return emptyFieldError.isDisplayed();
     }
 
     public String changeCountry(){
         countryButton.click();
-        System.out.println("Кликнули по кнопке выбора страны");
+        LOG.info("Кликнули по кнопке выбора страны");
         changeCountryField.sendKeys("France");
-        System.out.println("Напечатали в поле ввода: France");
+        LOG.info("Напечатали в поле ввода: France");
         changeCountryField.sendKeys(Keys.ENTER);
-        System.out.println("Нажали Enter");
+        LOG.info("Нажали Enter");
         changeCountryButton.click();
-        System.out.println("Кликнули по кнопке Choose");
+        LOG.info("Кликнули по кнопке Choose");
         return countryButton.getText();
     }
 
@@ -113,13 +117,13 @@ public class SpacePage {
     public void goSearchPage(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         bodyPage.sendKeys(Keys.CONTROL + "k");
-        System.out.println("Нажали комбинацию клавиш Ctrl+K");
+        LOG.info("Нажали комбинацию клавиш Ctrl+K");
         wait.until(ExpectedConditions.urlToBe("https://www.jetbrains.com/space/?s=full"));
     }
 
     public String getSearchFieldText(){
         searchIconButton.click();
-        System.out.println("Кликнули по иконке лупы");
+        LOG.info("Кликнули по иконке лупы");
         return searchField.getAttribute("placeholder");
     }
 
