@@ -1,17 +1,16 @@
 package com.example.jetbrainstest.pages.youtrackpages;
 
-
+import com.example.jetbrainstest.AllureLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 // https://www.jetbrains.com/youtrack/
 public class YouTrackPage {
 
-    private final Logger LOG = LoggerFactory.getLogger(YouTrackPage.class);
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(YouTrackPage.class));
     WebDriver driver;
 
     @FindBy(xpath = "//a[@href='/youtrack/whatsnew/']")
@@ -36,7 +35,7 @@ public class YouTrackPage {
     private WebElement PricingButton;
 
     public Boolean checkIfWhatsNewButtonIsClickable(){
-        LOG.info("Проверка кликабельности кнопки What's New");
+        LOG.infoWithScreenshot("Проверка кликабельности кнопки What's New");
         return  WhatsNewButton.isEnabled();
     }
 
