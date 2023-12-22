@@ -1,13 +1,23 @@
 package com.example.jetbrainstest.pages;
 
+
+import com.example.jetbrainstest.tests.ToolBoxAppTest;
+
+
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 //https://www.jetbrains.com/toolbox-app/
 public class ToolBoxAppPage {
+    private final Logger LOG = LoggerFactory.getLogger(ToolBoxAppPage.class);
     WebDriver driver;
+
     @FindBy(css = "button[data-test='submit-button']")
     private WebElement submitButton;
 
@@ -34,14 +44,14 @@ public class ToolBoxAppPage {
     }
 
     public Boolean checkIfSubmitButtonIsEnable(){
-        System.out.println("Проверка активности кнопки отправки");
+        LOG.info("!Проверка активности кнопки отправки!");
         return submitButton.isEnabled();
     }
 
     @FindBy(css = "ul[data-test='dropdown-menu']")
     private WebElement dropDownMenu;
     public Boolean checkIfDropDownMenuIsDisplayed(){
-        System.out.println("Проверка, что появилось дропдаун меню");
+        LOG.info("!Проверка, что появилось дропдаун меню!");
         return dropDownMenu.isDisplayed();
     }
     @FindBy(css = ".scroll-wrapper button")

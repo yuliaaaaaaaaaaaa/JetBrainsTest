@@ -4,11 +4,14 @@ import com.example.jetbrainstest.pages.ToolBoxAppPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.logging.LoggerFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
 
 import java.time.Duration;
+
 
 import static com.example.jetbrainstest.pages.ToolBoxAppPage.getValidMessage;
 import static org.junit.jupiter.api.Assertions.assertTrue;
