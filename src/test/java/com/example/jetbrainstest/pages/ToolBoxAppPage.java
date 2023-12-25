@@ -4,6 +4,7 @@ package com.example.jetbrainstest.pages;
 import com.example.jetbrainstest.tests.ToolBoxAppTest;
 
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +31,8 @@ public class ToolBoxAppPage {
     public void setWrongEmail(String wrongEmail){
         inputEmail.sendKeys(wrongEmail);
         inputEmail.submit();
-        System.out.println("В поле Email передано значение " + wrongEmail);
+        LOG.info("В поле Email передано значение " + wrongEmail);
+
     }
 
 
@@ -50,12 +52,15 @@ public class ToolBoxAppPage {
 
     @FindBy(css = "ul[data-test='dropdown-menu']")
     private WebElement dropDownMenu;
+
+    @Step("!Проверка, что появилось дропдаун меню!")
     public Boolean checkIfDropDownMenuIsDisplayed(){
         LOG.info("!Проверка, что появилось дропдаун меню!");
         return dropDownMenu.isDisplayed();
     }
     @FindBy(css = ".scroll-wrapper button")
     private WebElement dropDownMenuButton;
+    @Step("Нажати на кнопку .exe")
     public void clickDropDownMenuButton(){
 
         dropDownMenuButton.click();
