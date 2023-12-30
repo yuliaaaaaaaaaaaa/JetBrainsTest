@@ -9,10 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
-
 import java.time.Duration;
-
-
 import static com.example.jetbrainstest.pages.ToolBoxAppPage.getValidMessage;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
