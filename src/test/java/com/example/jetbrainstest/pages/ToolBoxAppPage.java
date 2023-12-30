@@ -37,7 +37,7 @@ public class ToolBoxAppPage {
         return validMessage;
     }
     public Boolean checkIfValidMessageIsDisplayed(){
-        LOG.info("Проверка, что валидация отобразилась");
+        LOG.infoWithScreenshot("Проверка, что валидация отобразилась");
         return validMessage.isDisplayed();
     }
 
@@ -51,7 +51,7 @@ public class ToolBoxAppPage {
 
     @Step("!Проверка, что появилось дропдаун меню!")
     public Boolean checkIfDropDownMenuIsDisplayed(){
-        LOG.info("!Проверка, что появилось дропдаун меню!");
+        LOG.infoWithScreenshot("!Проверка, что появилось дропдаун меню!");
         return dropDownMenu.isDisplayed();
     }
     @FindBy(css = ".scroll-wrapper button")
