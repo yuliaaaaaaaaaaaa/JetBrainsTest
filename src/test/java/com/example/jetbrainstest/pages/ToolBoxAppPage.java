@@ -59,7 +59,7 @@ public class ToolBoxAppPage {
 
     public void clickDropDownMenuButton(){
         dropDownMenuButton.click();
-        LOG.info("Нажати на кнопку .exe");
+        //LOG.info("Нажати на кнопку .exe");
     }
     public ToolBoxAppPage(WebDriver driver){
         this.driver = driver;

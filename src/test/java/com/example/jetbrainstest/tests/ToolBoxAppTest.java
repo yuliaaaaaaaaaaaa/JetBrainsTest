@@ -1,9 +1,11 @@
 package com.example.jetbrainstest.tests;
 
+import com.example.jetbrainstest.MyExtension;
 import com.example.jetbrainstest.pages.ToolBoxAppPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.commons.logging.LoggerFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,7 +14,7 @@ import org.slf4j.Logger;
 import java.time.Duration;
 import static com.example.jetbrainstest.pages.ToolBoxAppPage.getValidMessage;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+@ExtendWith(MyExtension.class)
 public class ToolBoxAppTest extends BaseTest{
     private ToolBoxAppPage toolBoxAppPage;
 
@@ -43,7 +45,7 @@ public class ToolBoxAppTest extends BaseTest{
     @Test
     @DisplayName("Проверка, что после нажатия на кнопку, появляется дропдаун меню")
     public void test() {
-        toolBoxAppPage.clickDropDownMenuButton();
+        //toolBoxAppPage.clickDropDownMenuButton(); исскуственная ошибка
         assertTrue(toolBoxAppPage.checkIfDropDownMenuIsDisplayed(),"Меню не появилось");
     }
 
