@@ -1,13 +1,11 @@
-package com.example.jetbrainstest.pages;
+package com.example.jetbrainstest.pages.toolboxpages;
 import com.example.jetbrainstest.AllureLogger;
-import com.example.jetbrainstest.tests.ToolBoxAppTest;
 import io.qameta.allure.Step;
-import org.openqa.selenium.Dimension;
+import jdk.jpackage.internal.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //https://www.jetbrains.com/toolbox-app/
@@ -17,19 +15,16 @@ public class ToolBoxAppPage {
 
     @FindBy(css = "button[data-test='submit-button']")
     private WebElement submitButton;
-
     public void clickSubmitButton(){
         submitButton.click();
         LOG.info("Нажали на кнопку \"Submit\"");
     }
     @FindBy(css = "input[name = 'email']")
     private WebElement inputEmail;
-
     public void setWrongEmail(String wrongEmail){
         inputEmail.sendKeys(wrongEmail);
         inputEmail.submit();
         LOG.info("В поле Email передано значение " + wrongEmail);
-
     }
     @FindBy(css = "div[data-test='input__error-message']")
     private static WebElement validMessage;
@@ -40,12 +35,10 @@ public class ToolBoxAppPage {
         LOG.infoWithScreenshot("Проверка, что валидация отобразилась");
         return validMessage.isDisplayed();
     }
-
     public Boolean checkIfSubmitButtonIsEnable(){
         LOG.info("!Проверка активности кнопки отправки!");
         return submitButton.isEnabled();
     }
-
     @FindBy(css = "ul[data-test='dropdown-menu']")
     private WebElement dropDownMenu;
 
@@ -59,7 +52,19 @@ public class ToolBoxAppPage {
 
     public void clickDropDownMenuButton(){
         dropDownMenuButton.click();
-        //LOG.info("Нажати на кнопку .exe");
+        LOG.info("Нажати на кнопку .exe");
+    }
+    @FindBy(css = ".toolbox-heading a[data-test = 'dropdown-button-link']")
+    private WebElement downloadButton;
+    public void clickDownloadButton(){
+        downloadButton.click();
+        Log.info("Нажали на 1-ю кнопку download");
+    }
+    @FindBy(xpath = "//*[ text() = 'FAQ & Shortcuts' ]")
+    private WebElement faqReference;
+    public void faqRefClick(){
+        faqReference.click();
+        Log.info("Нажали на ссылку FAQ & Shortcuts");
     }
     public ToolBoxAppPage(WebDriver driver){
         this.driver = driver;
