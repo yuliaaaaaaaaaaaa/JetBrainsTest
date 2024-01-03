@@ -1,12 +1,14 @@
 package com.example.jetbrainstest.pages.toolboxpages;
 import com.example.jetbrainstest.AllureLogger;
 import io.qameta.allure.Step;
-import jdk.jpackage.internal.Log;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
+
+import static com.example.jetbrainstest.MyWait.myWait;
 
 //https://www.jetbrains.com/toolbox-app/
 public class ToolBoxAppPage {
@@ -58,13 +60,25 @@ public class ToolBoxAppPage {
     private WebElement downloadButton;
     public void clickDownloadButton(){
         downloadButton.click();
-        Log.info("Нажали на 1-ю кнопку download");
+        LOG.info("Нажали на 1-ю кнопку download");
     }
     @FindBy(xpath = "//*[ text() = 'FAQ & Shortcuts' ]")
     private WebElement faqReference;
     public void faqRefClick(){
         faqReference.click();
-        Log.info("Нажали на ссылку FAQ & Shortcuts");
+        LOG.info("Нажали на ссылку FAQ & Shortcuts");
+    }
+    @FindBy(xpath = "//*[ text() = 'Blog & Social' ]")
+    private WebElement blogSocialRef;
+    public void blogSocialRefCLick(){
+        blogSocialRef.click();
+        LOG.info("Нажали на Blog & Social");
+    }
+    @FindBy(xpath = "//a[text() ='Other versions']")
+    private WebElement otherVersioLink;
+    public void otherVersioLinkClick() {
+
+        otherVersioLink.click();
     }
     public ToolBoxAppPage(WebDriver driver){
         this.driver = driver;
