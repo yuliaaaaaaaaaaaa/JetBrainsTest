@@ -1,15 +1,15 @@
 package com.example.jetbrainstest.tests;
 
-import com.example.jetbrainstest.AllureLogger;
 import com.example.jetbrainstest.MyExtension;
 import com.example.jetbrainstest.pages.toolboxpages.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.LoggerFactory;
+
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,7 +20,7 @@ public class ToolBoxAppTest extends BaseTest{
     private ToolBoxFAQShortcutsPage toolBoxFAQShortcutsPage;
     private ToolBoxBlogAndSocialPage toolBoxBlogAndSocialPage;
     private ToolBoxOtherVersionPage1 toolBoxOtherVersionPage1;
-    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(ToolBoxAppPage.class));
+    private ToolBoxDownloadPage toolBoxDownloadPage;
     @BeforeEach
     @Override
     public void setUp() {
@@ -30,52 +30,83 @@ public class ToolBoxAppTest extends BaseTest{
         toolBoxFAQShortcutsPage = new ToolBoxFAQShortcutsPage(getDriver());
         toolBoxBlogAndSocialPage = new ToolBoxBlogAndSocialPage(getDriver());
         toolBoxOtherVersionPage1 = new ToolBoxOtherVersionPage1(getDriver());
+        toolBoxDownloadPage = new ToolBoxDownloadPage(getDriver());
     }
-//1
+
     @Test
+    @Tag("1")
     @DisplayName("Проверка активности кнопки Submit")
     public void buttonCheck(){
         assertTrue(toolBoxAppPage.checkIfSubmitButtonIsEnable(), "Кнопка Submit не активна");
     }
-//2
     @Test
+    @Tag("2")
     @DisplayName("Проверка ввода неправильного email")
     public void wrongEmailSubmit(){
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(6));
-        toolBoxAppPage.setWrongEmail("wrong");
+        toolBoxAppPage.emailSend("wrong");
         toolBoxAppPage.clickSubmitButton();
         wait.until(ExpectedConditions.visibilityOf((ToolBoxAppPage.getValidMessage())));
         assertTrue(toolBoxAppPage.checkIfValidMessageIsDisplayed(), "Валидационное сообщение не появилось");
     }
-//3
+
     @Test
+    @Tag("3")
     @DisplayName("Проверка, что после нажатия на кнопку, появляется дропдаун меню")
     public void test() {
-        toolBoxAppPage.clickDropDownMenuButton(); //исскуственная ошибка
+        toolBoxAppPage.clickDropDownMenuButton();
         assertTrue(toolBoxAppPage.checkIfDropDownMenuIsDisplayed(),"Меню не появилось");
     }
-//4 ТК3
+
     @Test
+    @Tag("4_ТК3")
     @DisplayName("Проверка отображения блока, часто задаваемые вопросы")
     public void faqDisplayTest(){
         toolBoxAppPage.faqRefClick();
         assertTrue(toolBoxFAQShortcutsPage.faqIsDisplayed(), "Часто задаваемые вопросы не отобразились");
     }
-//5 ТК4
+
     @Test
+    @Tag("5_ТК4")
     @DisplayName("Проверка открытиея страницы Blog and Social")
     public void blogAndSocialDisp(){
         toolBoxAppPage.blogSocialRefCLick();
         assertTrue(toolBoxBlogAndSocialPage.blogContentDisplayed(), "Проверка отображения постов");
     }
-//6 ТК1
-    @Test
-    @DisplayName("Проверка что в тайтле Other Versions - Toolbox")
-    public void checkOtherVersionTitle(){
-        toolBoxAppPage.otherVersioLinkClick();
-      String title = "Other Versions - Toolbox";
 
-      assertEquals(title, toolBoxOtherVersionPage1.titleIsDisplayed(), "title не соответствует");
+    @Test
+    @Tag("6_ТК1")
+    @DisplayName("Проверка что в тайтле Other Versions - Toolbox")
+
+    public void checkOtherVersionTitle(){
+        String title = "Other Versions - Toolbox";
+        toolBoxAppPage.otherVersioLinkClick();
+        assertEquals(title, toolBoxOtherVersionPage1.getTitleText(), "title не соответствует");
+    }
+
+    @Test
+    @Tag("7_ТК5")
+    @DisplayName("Проверка заголовка на странице загрузки")
+    public void checkDownloadTitleText(){
+        String downloadTitle ="Thank you for downloading Toolbox App!";
+        toolBoxAppPage.clickDownloadButton();
+        assertEquals(downloadTitle, toolBoxDownloadPage.getDownloadTitleText());
+    }
+    @Test
+    @Tag("8_ТК2")
+    @DisplayName("Проверка отображения попап окна System requirements")
+    public void systemReqPopupDisplayed(){
+        toolBoxAppPage.clickSystemReqFirstRef();
+        assertTrue(toolBoxAppPage.checkIfSystemReqPopupDisplayed(), "Попап окно не открылось");
+    }
+    @Test
+    @Tag("9")
+    @DisplayName("Проверка ввода корректного email")
+    public void correctEmailSubmit(){
+        String correctEmail = "eredzhepov@mail.ru"; // необходимо ввести адрес почты ранее не оформившей подписку
+        toolBoxAppPage.emailSend(correctEmail);
+        toolBoxAppPage.clickSubmitButton();
+        assertTrue(toolBoxAppPage.getMessageAfterSuccesfulEmailSubmit(), "Сообщение об успешной отправки сообдения не появилось");
     }
 
 }

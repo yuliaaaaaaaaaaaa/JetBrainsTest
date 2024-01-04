@@ -1,7 +1,7 @@
 package com.example.jetbrainstest.pages.toolboxpages;
+
 import com.example.jetbrainstest.AllureLogger;
 import io.qameta.allure.Step;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,10 +23,9 @@ public class ToolBoxAppPage {
     }
     @FindBy(css = "input[name = 'email']")
     private WebElement inputEmail;
-    public void setWrongEmail(String wrongEmail){
-        inputEmail.sendKeys(wrongEmail);
-        inputEmail.submit();
-        LOG.info("В поле Email передано значение " + wrongEmail);
+    public void emailSend(String emailText){
+        inputEmail.sendKeys(emailText);
+        LOG.info("В поле Email передано значение " + emailText);
     }
     @FindBy(css = "div[data-test='input__error-message']")
     private static WebElement validMessage;
@@ -77,9 +76,31 @@ public class ToolBoxAppPage {
     @FindBy(xpath = "//a[text() ='Other versions']")
     private WebElement otherVersioLink;
     public void otherVersioLinkClick() {
-
+        LOG.info("Нажали на ссылку Other versions");
         otherVersioLink.click();
     }
+    @FindBy(css = "div.toolbox-heading span[class= 'wt-link']")
+    private WebElement systemReqFirstRef;
+
+    @FindBy(css = "div[role = 'dialog']")
+    private WebElement systemReqPopup;
+
+    public void clickSystemReqFirstRef(){
+        LOG.info("Нажали на ссылку System requirements");
+        systemReqFirstRef.click();
+    }
+    public Boolean checkIfSystemReqPopupDisplayed(){
+        myWait(10).visible(systemReqPopup);
+        LOG.info("Проверка отображения попап окна System requirements");
+        return systemReqPopup.isDisplayed();
+    }
+    @FindBy(css = "div.toolbox-primary-colors p.rs-text-2")
+    private WebElement messageAfterSuccesfulEmailSubmit;
+    public Boolean getMessageAfterSuccesfulEmailSubmit(){
+        myWait(20).visible(messageAfterSuccesfulEmailSubmit);
+        return messageAfterSuccesfulEmailSubmit.isDisplayed();
+    }
+
     public ToolBoxAppPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);

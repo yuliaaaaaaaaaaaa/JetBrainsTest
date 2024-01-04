@@ -1,14 +1,13 @@
 package com.example.jetbrainstest.pages.toolboxpages;
 
 import com.example.jetbrainstest.AllureLogger;
-import org.checkerframework.checker.units.qual.A;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
-
-import static com.example.jetbrainstest.MyWait.myWait;
 
 
 //https://www.jetbrains.com/toolbox-app/social/
