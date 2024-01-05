@@ -23,7 +23,7 @@ public class ToolBoxAppPage {
     }
     @FindBy(css = "input[name = 'email']")
     private WebElement inputEmail;
-    public void emailSend(String emailText){
+    public void setMailText(String emailText){
         inputEmail.sendKeys(emailText);
         LOG.info("В поле Email передано значение " + emailText);
     }
@@ -99,6 +99,18 @@ public class ToolBoxAppPage {
     public Boolean getMessageAfterSuccesfulEmailSubmit(){
         myWait(20).visible(messageAfterSuccesfulEmailSubmit);
         return messageAfterSuccesfulEmailSubmit.isDisplayed();
+    }
+    @FindBy(xpath = "//div[text() = 'This field is required']")
+    private WebElement messageAboutRequiredEmailField;
+    public Boolean messageAboutRequiredEmailFieldIsDisplayed(){
+        LOG.infoWithScreenshot("Поле ввода email не должно быть пустым");
+        return messageAboutRequiredEmailField.isDisplayed();
+    }
+    @FindBy(xpath = "//a[text() = 'Google Chrome']")
+    private WebElement googleChromeExistationRef;
+    public void googleChromeExistationRefClick(){
+        googleChromeExistationRef.click();
+        LOG.info("Была нажата ссылка GoogleChrome");
     }
 
     public ToolBoxAppPage(WebDriver driver){

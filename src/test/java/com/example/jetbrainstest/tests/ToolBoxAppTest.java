@@ -21,6 +21,7 @@ public class ToolBoxAppTest extends BaseTest{
     private ToolBoxBlogAndSocialPage toolBoxBlogAndSocialPage;
     private ToolBoxOtherVersionPage1 toolBoxOtherVersionPage1;
     private ToolBoxDownloadPage toolBoxDownloadPage;
+    private GoogleChromeExistationPage googleChromeExistationPage;
     @BeforeEach
     @Override
     public void setUp() {
@@ -31,6 +32,8 @@ public class ToolBoxAppTest extends BaseTest{
         toolBoxBlogAndSocialPage = new ToolBoxBlogAndSocialPage(getDriver());
         toolBoxOtherVersionPage1 = new ToolBoxOtherVersionPage1(getDriver());
         toolBoxDownloadPage = new ToolBoxDownloadPage(getDriver());
+        googleChromeExistationPage = new GoogleChromeExistationPage(getDriver());
+
     }
 
     @Test
@@ -44,7 +47,7 @@ public class ToolBoxAppTest extends BaseTest{
     @DisplayName("Проверка ввода неправильного email")
     public void wrongEmailSubmit(){
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(6));
-        toolBoxAppPage.emailSend("wrong");
+        toolBoxAppPage.setMailText("wrong");
         toolBoxAppPage.clickSubmitButton();
         wait.until(ExpectedConditions.visibilityOf((ToolBoxAppPage.getValidMessage())));
         assertTrue(toolBoxAppPage.checkIfValidMessageIsDisplayed(), "Валидационное сообщение не появилось");
@@ -104,9 +107,25 @@ public class ToolBoxAppTest extends BaseTest{
     @DisplayName("Проверка ввода корректного email")
     public void correctEmailSubmit(){
         String correctEmail = "eredzhepov@mail.ru"; // необходимо ввести адрес почты ранее не оформившей подписку
-        toolBoxAppPage.emailSend(correctEmail);
+        toolBoxAppPage.setMailText(correctEmail);
         toolBoxAppPage.clickSubmitButton();
         assertTrue(toolBoxAppPage.getMessageAfterSuccesfulEmailSubmit(), "Сообщение об успешной отправки сообдения не появилось");
+    }
+    @Test
+    @Tag("10")
+    @DisplayName("Отправка пустого email")
+    public void sendEmptyMail(){
+        toolBoxAppPage.clickSubmitButton();
+        assertTrue(toolBoxAppPage.messageAboutRequiredEmailFieldIsDisplayed(), "Сообщение об обязательном поле не появилось");
+    }
+    @Test
+    @Tag("11")
+    @DisplayName("Закрытие всплывающего попап окна с установкой расширения")
+    public void installGoogleChromeExistation(){
+        toolBoxAppPage.googleChromeExistationRefClick();
+        googleChromeExistationPage.clickInstallExistationButton();
+        googleChromeExistationPage.dismiss();
+        assertTrue(googleChromeExistationPage.installExistationButtonIsClickable(), "Кнопка установить не появилась");
     }
 
 }
