@@ -22,6 +22,7 @@ public class ToolBoxAppTest extends BaseTest{
     private ToolBoxOtherVersionPage1 toolBoxOtherVersionPage1;
     private ToolBoxDownloadPage toolBoxDownloadPage;
     private GoogleChromeExistationPage googleChromeExistationPage;
+    private ToolBoxFirefoxPage toolBoxFirefoxPage;
     @BeforeEach
     @Override
     public void setUp() {
@@ -33,6 +34,7 @@ public class ToolBoxAppTest extends BaseTest{
         toolBoxOtherVersionPage1 = new ToolBoxOtherVersionPage1(getDriver());
         toolBoxDownloadPage = new ToolBoxDownloadPage(getDriver());
         googleChromeExistationPage = new GoogleChromeExistationPage(getDriver());
+        toolBoxFirefoxPage = new ToolBoxFirefoxPage(getDriver());
 
     }
 
@@ -118,15 +120,43 @@ public class ToolBoxAppTest extends BaseTest{
         toolBoxAppPage.clickSubmitButton();
         assertTrue(toolBoxAppPage.messageAboutRequiredEmailFieldIsDisplayed(), "Сообщение об обязательном поле не появилось");
     }
+//    @Test
+//    @Tag("11")
+//    @DisplayName("Закрытие всплывающего попап окна с установкой расширения")
+//    public void installGoogleChromeExistation(){
+//        toolBoxAppPage.googleChromeExistationRefClick();
+//        googleChromeExistationPage.clickInstallExistationButton();
+//        googleChromeExistationPage.dismiss();
+//        assertTrue(googleChromeExistationPage.installExistationButtonIsClickable(), "Кнопка установить не появилась");
+//    }
     @Test
-    @Tag("11")
-    @DisplayName("Закрытие всплывающего попап окна с установкой расширения")
+    @Tag("12")
+    @DisplayName("Показать почту гугл")
     public void installGoogleChromeExistation(){
         toolBoxAppPage.googleChromeExistationRefClick();
-        googleChromeExistationPage.clickInstallExistationButton();
-        googleChromeExistationPage.dismiss();
-        assertTrue(googleChromeExistationPage.installExistationButtonIsClickable(), "Кнопка установить не появилась");
+        googleChromeExistationPage.unfurlGoogleMailList();
+        assertTrue(googleChromeExistationPage.supportMailIsDisplayed(), "Почта google не появилась");
     }
+    @Test
+    @Tag("13")
+    @DisplayName("Проверка что на cтранице Firfox в тайтле JetBrains Toolbox Extension – Get this Extension for \uD83E\uDD8A Firefox (en-US)")
+
+    public void firefoxPageTitle(){
+        String title = "JetBrains Toolbox Extension – Get this Extension for \uD83E\uDD8A Firefox (en-US)";
+        toolBoxAppPage.firefoxRefClick();
+        assertEquals(title, toolBoxFirefoxPage.getTitleText(), "title не соответствует");
+    }
+    @Test
+    @Tag("14")
+    @DisplayName("Выбранная версия соответствует версии Windows")
+    public void checkedVersionAgreeWithWindowsVersion(){
+        toolBoxAppPage.otherVersioLinkClick();
+        toolBoxOtherVersionPage1.versionListClick();
+        toolBoxOtherVersionPage1.versionCheck();
+        String actualWindowsVersion = toolBoxOtherVersionPage1.getCheckedVersion() + " - Windows (exe)";
+        assertEquals(actualWindowsVersion, toolBoxOtherVersionPage1.getWindowsVersion());
+    }
+
 
 }
 

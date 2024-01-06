@@ -112,6 +112,11 @@ public class ToolBoxAppPage {
         googleChromeExistationRef.click();
         LOG.info("Была нажата ссылка GoogleChrome");
     }
+    @FindBy(xpath = "//a[text() = 'Firefox']")
+    private WebElement firefoxRef;
+    public void firefoxRefClick(){
+        firefoxRef.click();
+    }
 
     public ToolBoxAppPage(WebDriver driver){
         this.driver = driver;

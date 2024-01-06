@@ -5,11 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
-
-import java.time.Duration;
 
 import static com.example.jetbrainstest.MyWait.myWait;
 
@@ -30,7 +26,19 @@ public class GoogleChromeExistationPage {
         LOG.info("Закрыть алерт окно");
         driver.switchTo().alert().dismiss();
     }
-
+    @FindBy(css = "summary.dhB8g")
+    private WebElement googleMailList;
+    public void unfurlGoogleMailList(){
+        LOG.info("Раскрыть почту google");
+        googleMailList.click();
+    }
+    @FindBy(css = "div.yNyGQd")
+    private WebElement supportMailBlock;
+    public Boolean supportMailIsDisplayed(){
+        myWait(10).visible(supportMailBlock);
+        LOG.info("Отображение почты google");
+        return supportMailBlock.isDisplayed();
+    }
     public GoogleChromeExistationPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
