@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+
 import static com.example.jetbrainstest.MyWait.myWait;
 
 //https://www.jetbrains.com/toolbox-app/
@@ -116,6 +118,14 @@ public class ToolBoxAppPage {
     private WebElement firefoxRef;
     public void firefoxRefClick(){
         firefoxRef.click();
+    }
+    @FindBy (xpath = "//a[text() = 'JetBrains Privacy Policy']")
+    private WebElement jetBrainsPrivacyPolicyLink;
+    public  void jetBrainsPrivacyPolicyLinkClick(){
+        jetBrainsPrivacyPolicyLink.click();
+        ArrayList tabs = new ArrayList<> (driver.getWindowHandles());
+        driver.switchTo().window((String) tabs.get(1));
+
     }
 
     public ToolBoxAppPage(WebDriver driver){

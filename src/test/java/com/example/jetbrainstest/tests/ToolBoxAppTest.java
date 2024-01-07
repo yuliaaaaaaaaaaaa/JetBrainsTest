@@ -23,6 +23,7 @@ public class ToolBoxAppTest extends BaseTest{
     private ToolBoxDownloadPage toolBoxDownloadPage;
     private GoogleChromeExistationPage googleChromeExistationPage;
     private ToolBoxFirefoxPage toolBoxFirefoxPage;
+    private  ToolBoxPrivacyPolicyPage toolBoxPrivacyPolicyPage;
     @BeforeEach
     @Override
     public void setUp() {
@@ -35,6 +36,7 @@ public class ToolBoxAppTest extends BaseTest{
         toolBoxDownloadPage = new ToolBoxDownloadPage(getDriver());
         googleChromeExistationPage = new GoogleChromeExistationPage(getDriver());
         toolBoxFirefoxPage = new ToolBoxFirefoxPage(getDriver());
+        toolBoxPrivacyPolicyPage = new ToolBoxPrivacyPolicyPage(getDriver());
 
     }
 
@@ -155,6 +157,13 @@ public class ToolBoxAppTest extends BaseTest{
         toolBoxOtherVersionPage1.versionCheck();
         String actualWindowsVersion = toolBoxOtherVersionPage1.getCheckedVersion() + " - Windows (exe)";
         assertEquals(actualWindowsVersion, toolBoxOtherVersionPage1.getWindowsVersion());
+    }
+    @Test
+    @Tag("15")
+    @DisplayName("Отображение загаловка на странице JetBrainc Policy")
+    public void jetBrainPrivacyPolicySummaryIsShowed(){
+        toolBoxAppPage.jetBrainsPrivacyPolicyLinkClick();
+        assertTrue(toolBoxPrivacyPolicyPage.privacySummaryIsDisplayed(), "Заголовок на странице конфидециальности не появился");
     }
 
 
