@@ -60,7 +60,7 @@ public class ToolBoxAppTest extends BaseTest{
     @Test
     @Tag("3")
     @DisplayName("Проверка, что после нажатия на кнопку, появляется дропдаун меню")
-    public void test() {
+    public void dropDownMenuShowed() {
         toolBoxAppPage.clickDropDownMenuButton();
         assertTrue(toolBoxAppPage.checkIfDropDownMenuIsDisplayed(),"Меню не появилось");
     }
@@ -165,7 +165,46 @@ public class ToolBoxAppTest extends BaseTest{
         toolBoxAppPage.jetBrainsPrivacyPolicyLinkClick();
         assertTrue(toolBoxPrivacyPolicyPage.privacySummaryIsDisplayed(), "Заголовок на странице конфидециальности не появился");
     }
-
+    @Test
+    @Tag("16")
+    @DisplayName("Проверка заголовка на странице загрузки, после тоо как нажали на 2-ю кнопку загрузки")
+    public void checkSecondDownloadTitleText(){
+        String downloadTitle ="Thank you for downloading Toolbox App!";
+        toolBoxAppPage.secondDownloadButtonClick();
+        assertEquals(downloadTitle, toolBoxDownloadPage.getDownloadTitleText());
+    }
+    @Test
+    @Tag("17")
+    @DisplayName("Проверка, что после нажатия на кнопку 2-ю кнопку exe, появляется дропдаун меню")
+    public void secondDropDownMenuShowed() {
+        toolBoxAppPage.clickDropDownMenuButton();
+        assertTrue(toolBoxAppPage.checkIfDropDownMenuIsDisplayed(),"Меню не появилось");
+    }
+    @Test
+    @Tag("18")
+    @DisplayName("Проверка отображения попап окна System requirements после нажатия на 2-ю ссылку System requirements")
+    public void secondSystemReqPopupDisplayed(){
+        toolBoxAppPage.secondSystemReqLinkClick();
+        assertTrue(toolBoxAppPage.checkIfSystemReqPopupDisplayed(), "Попап окно не открылось");
+    }
+    @Test
+    @Tag("19")
+    @DisplayName("Проверка отображения фамилии и имени автора")
+    public void checkAuthorNameAndSername(){
+        String[] authorDetails = toolBoxAppPage.getAthorDetails().split(" ");
+        String authorNameAndSername = authorDetails[0] + " " + authorDetails[1];
+        String actualAutherNameAndSername = "Vedran Pavic";
+        assertEquals(actualAutherNameAndSername,authorNameAndSername, "Имя и фамилия автора не соответствпадают");
+    }
+    @Test
+    @Tag("20")
+    @DisplayName("Проверка отображения электронного адреса автора")
+    public void checkAuthorMail(){
+        String[] authorDetails = toolBoxAppPage.getAthorDetails().split(" ");
+        String authorMail = authorDetails[2];
+        String actualAutherMail = "@vedran_pavic";
+        assertEquals(actualAutherMail,authorMail, "Почта автора не соответветствует указанной");
+    }
 
 }
 

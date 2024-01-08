@@ -127,6 +127,26 @@ public class ToolBoxAppPage {
         driver.switchTo().window((String) tabs.get(1));
 
     }
+    @FindBy(css =".wt-subtitle-2.wt-subtitle-2_theme_light.wt-offset-top-24 ~ div.wt-offset-top-48.jb-button-with-note.jb-text-md-left a")
+    private WebElement secondDownloadButton;
+    public void secondDownloadButtonClick(){
+        secondDownloadButton.click();
+    }
+    @FindBy(css = ".wt-subtitle-2.wt-subtitle-2_theme_light.wt-offset-top-24 ~ div.wt-offset-top-48.jb-button-with-note.jb-text-md-left button")
+    private WebElement secondExeButton;
+    public void secondExeButtonClick(){
+        secondExeButton.click();
+    }
+    @FindBy(css = ".wt-subtitle-2.wt-subtitle-2_theme_light.wt-offset-top-24 ~ div.wt-offset-top-48.jb-button-with-note.jb-text-md-left span[data-test=\"list-item\"]")
+    private WebElement secondSystemReqLink;
+    public void secondSystemReqLinkClick(){
+        secondSystemReqLink.click();
+    }
+    @FindBy(css =".wt-text-2.wt-text-2_theme_light.wt-offset-top-24")
+    private WebElement author;
+    public String getAthorDetails(){
+        return author.getText();
+    }
 
     public ToolBoxAppPage(WebDriver driver){
         this.driver = driver;
