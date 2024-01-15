@@ -36,37 +36,37 @@ public class QodanaPage {
     private WebElement TryForFreeButton2;
 
     public Boolean checkIfDocumentationButtonIsClickable() {
-        LOG.info("Проверка кликабельности кнопки Documentation");
+        LOG.infoWithScreenshot("Проверка кликабельности кнопки Documentation");
         return DocumentationButton.isEnabled();
     }
 
     public Boolean checkIfBlogButtonIsClickable(){
-        LOG.info("Проверка кликабельности кнопки Blog");
+        LOG.infoWithScreenshot("Проверка кликабельности кнопки Blog");
         return  BlogButton.isEnabled();
     }
 
     public Boolean checkIfRequestDemoButtonIsClickable(){
-        LOG.info("Проверка кликабельности кнопки Request Demo");
+        LOG.infoWithScreenshot("Проверка кликабельности кнопки Request Demo");
         return  RequestDemoButton.isEnabled();
     }
 
     public void requestDemoButtonClick(){
         RequestDemoButton.click();
-        LOG.info("Переход на страницу Request a demo");
+        LOG.infoWithScreenshot("Переход на страницу Request a demo");
     }
 
     public Boolean checkIfPricingButtonIsClickable(){
-        LOG.info("Проверка кликабельности кнопки Pricing");
+        LOG.infoWithScreenshot("Проверка кликабельности кнопки Pricing");
         return  PricingButton.isEnabled();
     }
 
     public Boolean checkIfTryForFreeButton1IsClickable(){
-        LOG.info("Проверка кликабельности кнопки Try For Free в меню");
+        LOG.infoWithScreenshot("Проверка кликабельности кнопки Try For Free в меню");
         return  TryForFreeButton1.isEnabled();
     }
 
     public Boolean checkIfTryForFreeButton2IsClickable(){
-        LOG.info("Проверка кликабельности кнопки Try For Free на странице");
+        LOG.infoWithScreenshot("Проверка кликабельности кнопки Try For Free на странице");
         return  TryForFreeButton2.isEnabled();
     }
 
