@@ -1,5 +1,6 @@
 package com.example.jetbrainstest.pages.qodanapages;
 
+import com.example.jetbrainstest.AllureLogger;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,9 @@ import org.slf4j.LoggerFactory;
 // https://www.jetbrains.com/qodana
 
 public class QodanaPage {
-    private final Logger LOG = LoggerFactory.getLogger(QodanaPage.class);
+
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(QodanaPage.class));
+
     WebDriver driver;
 
     @FindBy(xpath = "(//*[text()='Documentation'])[1]")
