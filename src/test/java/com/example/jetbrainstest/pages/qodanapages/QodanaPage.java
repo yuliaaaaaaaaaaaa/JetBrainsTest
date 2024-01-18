@@ -55,9 +55,24 @@ public class QodanaPage {
         LOG.infoWithScreenshot("Переход на страницу Request a demo");
     }
 
+    public void documentationButtonClick(){
+        DocumentationButton.click();
+        LOG.infoWithScreenshot("Переход на страницу Documentation");
+    }
+
+    public void blogButtonClick(){
+        BlogButton.click();
+        LOG.infoWithScreenshot("Переход на страницу Blog");
+    }
+
     public Boolean checkIfPricingButtonIsClickable(){
         LOG.infoWithScreenshot("Проверка кликабельности кнопки Pricing");
         return  PricingButton.isEnabled();
+    }
+
+    public void PricingButtonClick(){
+        PricingButton.click();
+        LOG.infoWithScreenshot("Переход на страницу Subscription Options and Pricing");
     }
 
     public Boolean checkIfTryForFreeButton1IsClickable(){
