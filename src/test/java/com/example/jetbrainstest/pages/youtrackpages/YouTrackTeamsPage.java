@@ -7,70 +7,87 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
 
-// https://www.jetbrains.com/youtrack/teams/
+/**
+ * <a href="https://www.jetbrains.com/youtrack/teams/">...</a>
+ */
+
 public class YouTrackTeamsPage {
 
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(YouTrackPage.class));
     WebDriver driver;
 
     @FindBy(xpath = "//a[@href=\"/youtrack/teams/development.html\"]")
-    private WebElement DevelopersTeam;
+    private WebElement developersTeam;
 
     @FindBy(xpath = "//a[@href=\"/youtrack/teams/marketing.html\"]")
-    private WebElement MarketingTeam;
+    private WebElement marketingTeam;
 
     @FindBy(xpath = "//a[@href=\"/youtrack/helpdesk/\"]")
-    private WebElement SupportTeam;
+    private WebElement supportTeam;
 
     @FindBy(xpath = "//a[@href=\"/youtrack/teams/management.html\"]")
-    private WebElement PMTeam;
+    private WebElement managementTeam;
 
     @FindBy(xpath = "//a[@href=\"/youtrack/teams/design.html\"]")
-    private WebElement DesignTeam;
+    private WebElement designTeam;
 
     @FindBy(xpath = "//a[@href=\"/youtrack/teams/qa.html\"]")
-    private WebElement QATeam;
+    private WebElement qaTeam;
 
     @FindBy(xpath = "//a[@href=\"/youtrack/teams/operations.html\"]")
-    private WebElement OperationsTeam;
+    private WebElement operationsTeam;
 
-    public String checkIfDevelopersTeamsIsWorking(){
-        LOG.infoWithScreenshot("Переход в раздел Developers");
-        DevelopersTeam.click();
-        return driver.getCurrentUrl();
+    public String developersTeamsTransition() {
+        LOG.info("Переход в раздел Developers");
+        developersTeam.click();
+
+        return getUrl();
     }
-    public String checkIfMarketingTeamsIsWorking(){
-        LOG.infoWithScreenshot("Переход в раздел Marketing");
-        MarketingTeam.click();
-        return driver.getCurrentUrl();
+
+    public String marketingTeamsTransition() {
+        LOG.info("Переход в раздел Marketing");
+        marketingTeam.click();
+        return getUrl();
     }
-    public String checkIfSupportTeamsIsWorking(){
-        LOG.infoWithScreenshot("Переход в раздел Support");
-        SupportTeam.click();
-        return driver.getCurrentUrl();
+
+    public String supportTeamsTransition() {
+        LOG.info("Переход в раздел Support");
+        supportTeam.click();
+        return getUrl();
     }
-    public String checkIfManagementTeamsIsWorking(){
-        LOG.infoWithScreenshot("Переход в раздел Product Management");
-        PMTeam.click();
-        return driver.getCurrentUrl();
+
+    public String managementTeamsTransition() {
+        LOG.info("Переход в раздел Product Management");
+        managementTeam.click();
+        return getUrl();
     }
-    public String checkIfDesignTeamsIsWorking(){
-        LOG.infoWithScreenshot("Переход в раздел Designers");
-        DesignTeam.click();
-        return driver.getCurrentUrl();
+
+    public String designTeamsTransition() {
+        LOG.info("Переход в раздел Designers");
+        designTeam.click();
+        return getUrl();
     }
-    public String checkIfQATeamsIsWorking(){
-        LOG.infoWithScreenshot("Переход в раздел QA");
-        QATeam.click();
-        return driver.getCurrentUrl();
+
+    public String qaTeamsTransition() {
+        LOG.info("Переход в раздел QA");
+        qaTeam.click();
+        return getUrl();
     }
-    public String checkIfOperationsTeamsIsWorking(){
-        LOG.infoWithScreenshot("Переход в раздел Operations and Legal");
-        OperationsTeam.click();
-        return driver.getCurrentUrl();
+
+    public String operationsTeamsTransition() {
+        LOG.info("Переход в раздел Operations and Legal");
+        operationsTeam.click();
+        return getUrl();
     }
-    public YouTrackTeamsPage(WebDriver driver){
+
+    public YouTrackTeamsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public String getUrl() {
+        String url = driver.getCurrentUrl();
+        LOG.info("Текущий адрес URL: " + url);
+        return url;
     }
 }

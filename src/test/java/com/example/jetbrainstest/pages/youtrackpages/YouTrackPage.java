@@ -7,155 +7,158 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
 
-// https://www.jetbrains.com/youtrack/
+/**
+ * <a href="https://www.jetbrains.com/youtrack/">...</a>
+ */
+
 public class YouTrackPage {
 
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(YouTrackPage.class));
     WebDriver driver;
 
     @FindBy(xpath = "//a[@href='/youtrack/whatsnew/']")
-    private WebElement WhatsNewButton;
+    private WebElement whatsNewButton;
 
     @FindBy(xpath = "//a[@href='/youtrack/agile/']")
-    private WebElement AgileButton;
+    private WebElement agileButton;
 
     @FindBy(xpath = "//a[@href='/youtrack/teams/']")
-    private WebElement TeamsButton;
+    private WebElement teamsButton;
 
     @FindBy(xpath = "//a[@href='/youtrack/features/']")
-    private WebElement FeaturesButton;
+    private WebElement featuresButton;
 
     @FindBy(xpath = "//a[@href='/youtrack/helpdesk/']")
-    private WebElement HelpdeskButton;
+    private WebElement helpdeskUpperButton;
 
     @FindBy(xpath = "//a[@href='/youtrack/support/']")
-    private WebElement SupportButton;
+    private WebElement supportButton;
 
     @FindBy(xpath = "//a[@href='/youtrack/buy/']")
-    private WebElement PricingButton;
+    private WebElement pricingButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[1]")
-    private WebElement YTProjectsButton;
+    private WebElement projectsButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[2]")
-    private WebElement YTTasksButton;
+    private WebElement tasksButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[3]")
-    private WebElement YTAiAssistantButton;
+    private WebElement aiAssistantButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[4]")
-    private WebElement YTKnowledgeBaseButton;
+    private WebElement knowledgeBaseButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[5]")
-    private WebElement YTAgileBoardsButton;
+    private WebElement agileBoardsButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[6]")
-    private WebElement YTTimesheetsButton;
+    private WebElement timesheetsButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[7]")
-    private WebElement YTGanttChartsButton;
+    private WebElement ganttChartsButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[8]")
-    private WebElement YTReportsButton;
+    private WebElement reportsButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[9]")
-    private WebElement YTHelpdeskButton;
+    private WebElement helpdeskLowerButton;
 
     @FindBy(xpath = "(//div[contains(@class, '_alignCenter_zzkm1p_72')]//button)[10]")
-    private WebElement YTWorkflowsButton;
+    private WebElement workflowsButton;
 
-    public Boolean checkIfWhatsNewButtonIsClickable(){
-        LOG.infoWithScreenshot("Проверка кликабельности кнопки What's New");
-        return  WhatsNewButton.isEnabled();
+    public Boolean checkIfWhatsNewButtonIsClickable() {
+        LOG.info("Проверка кликабельности кнопки What's New");
+        return whatsNewButton.isEnabled();
     }
 
-    public Boolean checkIfAgileButtonIsClickable(){
+    public Boolean checkIfAgileButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Agile");
-        return  AgileButton.isEnabled();
+        return agileButton.isEnabled();
     }
 
-    public Boolean checkIfTeamsButtonIsClickable(){
+    public Boolean checkIfTeamsButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Teams");
-        return  TeamsButton.isEnabled();
+        return teamsButton.isEnabled();
     }
 
-    public Boolean checkIfFeaturesButtonIsClickable(){
+    public Boolean checkIfFeaturesButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Features");
-        return  FeaturesButton.isEnabled();
+        return featuresButton.isEnabled();
     }
 
-    public Boolean checkIfHelpdeskButtonIsClickable(){
+    public Boolean checkIfHelpdeskButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Helpdesk");
-        return  HelpdeskButton.isEnabled();
+        return helpdeskUpperButton.isEnabled();
     }
 
-    public Boolean checkIfSupportButtonIsClickable(){
+    public Boolean checkIfSupportButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Support");
-        return  SupportButton.isEnabled();
+        return supportButton.isEnabled();
     }
 
-    public Boolean checkIfPricingButtonIsClickable(){
+    public Boolean checkIfPricingButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Pricing");
-        return  PricingButton.isEnabled();
+        return pricingButton.isEnabled();
     }
 
     public Boolean checkIfYTProjectsButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Projects");
-        return YTProjectsButton.isEnabled();
+        return projectsButton.isEnabled();
     }
 
     public Boolean checkIfYTTasksButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Tasks");
-        return YTTasksButton.isEnabled();
+        return tasksButton.isEnabled();
     }
 
     public Boolean checkIfAiAssistantButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки AI Assistant");
-        return YTAiAssistantButton.isEnabled();
+        return aiAssistantButton.isEnabled();
     }
 
     public Boolean checkIfYTKnowledgeBaseButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Knowledge Base");
-        return YTKnowledgeBaseButton.isEnabled();
+        return knowledgeBaseButton.isEnabled();
     }
 
     public Boolean checkIfYTAgileBoardsButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Agile Boards");
-        return YTAgileBoardsButton.isEnabled();
+        return agileBoardsButton.isEnabled();
     }
 
     public Boolean checkIfYTTimesheetsButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Timesheets");
-        return YTTimesheetsButton.isEnabled();
+        return timesheetsButton.isEnabled();
     }
 
     public Boolean checkIfYTGanttChartsButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Gantt Charts");
-        return YTGanttChartsButton.isEnabled();
+        return ganttChartsButton.isEnabled();
     }
 
     public Boolean checkIfYTReportsButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Reports");
-        return YTReportsButton.isEnabled();
+        return reportsButton.isEnabled();
     }
 
     public Boolean checkIfYTHelpdeskButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Helpdesk");
-        return YTHelpdeskButton.isEnabled();
+        return helpdeskLowerButton.isEnabled();
     }
 
     public Boolean checkIfYTWorkflowsButtonIsClickable() {
         LOG.info("Проверка кликабельности кнопки Workflows");
-        return YTWorkflowsButton.isEnabled();
+        return workflowsButton.isEnabled();
     }
 
-    public String checkIfTeamsButtonIsWorking() {
+    public String teamsButtonTransition() {
         LOG.info("Переход на страницу Teams");
-        TeamsButton.click();
+        teamsButton.click();
         return driver.getCurrentUrl();
     }
 
-    public YouTrackPage(WebDriver driver){
+    public YouTrackPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
