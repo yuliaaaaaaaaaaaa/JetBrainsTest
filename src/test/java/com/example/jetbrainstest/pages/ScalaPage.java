@@ -1,6 +1,7 @@
 package com.example.jetbrainstest.pages;
 
 import com.example.jetbrainstest.AllureLogger;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,16 +26,18 @@ public class ScalaPage {
     @FindBy(xpath = "//*[contains(text(),'Show More')]")
     private WebElement showMore;
 
+    @Step("Проверка активности кнопки загрузки")
     public Boolean checkIfGetButtonIsClickable() {
         LOG.info("Проверка активности кнопки загрузки");
         wait.until(ExpectedConditions.visibilityOfAllElements(getButton));
         return getButton.isEnabled();
     }
 
+    @Step("Проверка наличия кнопки 'Show More'")
     public Boolean findButtonShowMore() {
         LOG.info("Проверка наличия кнопки 'Show More'");
-        wait.until(ExpectedConditions.visibilityOfAllElements(showMore));
         versions.click();
+        wait.until(ExpectedConditions.visibilityOfAllElements(showMore));
         return showMore.isDisplayed();
     }
 
