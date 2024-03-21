@@ -18,7 +18,6 @@ public class ScalaTest extends BaseTest {
         super.setUp();
         getDriver().get("https://plugins.jetbrains.com/plugin/1347-scala");
         scalaPage = new ScalaPage(getDriver());
-
     }
 
     @Test
@@ -29,8 +28,6 @@ public class ScalaTest extends BaseTest {
 
     @Test
     public void scalaPagefindButtonShowMore() {
-
         assertTrue(scalaPage.findButtonShowMore(), "кнопка" + "Show More" + "не найдена");
     }
-
 }
