@@ -32,11 +32,12 @@ public class ScalaPage {
     }
 
     public Boolean findButtonShowMore() {
-        LOG.info("Проверка наличия кнопки 'Show More' ");
+        LOG.info("Проверка наличия кнопки 'Show More'");
         wait.until(ExpectedConditions.visibilityOfAllElements(showMore));
         versions.click();
         return showMore.isDisplayed();
     }
+
     public ScalaPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
