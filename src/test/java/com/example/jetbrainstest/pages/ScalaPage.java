@@ -15,7 +15,7 @@ import java.time.Duration;
 
 
 public class ScalaPage {
-    private final Logger LOG = LoggerFactory.getLogger(ScalaPage.class);
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(ScalaPage.class));
     WebDriver driver;
     private WebDriverWait wait;
 
@@ -26,14 +26,12 @@ public class ScalaPage {
     @FindBy(xpath = "//*[contains(text(),'Show More')]")
     private WebElement showMore;
 
-    @Step("Проверка активности кнопки загрузки")
     public Boolean checkIfGetButtonIsClickable() {
         LOG.info("Проверка активности кнопки загрузки");
         wait.until(ExpectedConditions.visibilityOfAllElements(getButton));
         return getButton.isEnabled();
     }
 
-    @Step("Проверка наличия кнопки 'Show More'")
     public Boolean findButtonShowMore() {
         LOG.info("Проверка наличия кнопки 'Show More'");
         versions.click();

@@ -27,6 +27,7 @@ public class ScalaTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверка наличия кнопки Show More")
     public void scalaPagefindButtonShowMore() {
         assertTrue(scalaPage.findButtonShowMore(), "кнопка" + "Show More" + "не найдена");
     }
