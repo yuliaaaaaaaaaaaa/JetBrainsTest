@@ -4,8 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DotTracePage {
+
+    private final Logger LOG = LoggerFactory.getLogger(DotTracePage.class);
+
     WebDriver driver;
 
     @FindBy(xpath = "//a[@href='/profiler/download/']")
@@ -27,30 +32,36 @@ public class DotTracePage {
     private WebElement MoreFeatures;
 
     public Boolean downloadButtonIsClickable() {
-        System.out.println("Проверка активности кнопки Download");
+        LOG.info("Проверка активности кнопки Download");
         return DownloadButton.isEnabled();
     }
+
     public Boolean pricingButtonIsClickable() {
-        System.out.println("Проверка активности кнопки Pricing");
+        LOG.info("Проверка активности кнопки Pricing");
         return PricingButton.isEnabled();
     }
+
     public Boolean checkOutOurMemoryProfilerButtonIsClickable() {
-        System.out.println("Проверка активности кнопки Check out our memory profiler");
+        LOG.info("Проверка активности кнопки Check out our memory profiler");
         return CheckOutOurMemoryProfilerButton.isEnabled();
     }
+
     public Boolean partofdotUltimateElementIsDisplayed() {
-        System.out.println("Проверка, что элемент Part of dotUltimate есть на странице");
+        LOG.info("Проверка, что элемент Part of dotUltimate есть на странице");
         return PartOfDotUltimateElement.isDisplayed();
     }
+
     public Boolean optimizeNETApplicationsIsDisplayed() {
-        System.out.println("Проверка, что элемент Optimize.NETApplications есть на странице");
+        LOG.info("Проверка, что элемент Optimize.NETApplications есть на странице");
         return OptimizeNETApplications.isDisplayed();
     }
+
     public String MoreFeaturesButtonClick() {
-        System.out.println("Нажатие на кнопку More Features");
+        LOG.info("Нажатие на кнопку More Features");
         MoreFeatures.click();
         return driver.getCurrentUrl();
     }
+
     public DotTracePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
