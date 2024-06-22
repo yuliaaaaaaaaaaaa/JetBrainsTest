@@ -1,6 +1,7 @@
 package com.example.jetbrainstest.tests;
 
 import com.example.jetbrainstest.pages.DotTracePage;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,6 +16,7 @@ public class DotTraceTest extends BaseTest {
 
     @BeforeEach
     @Override
+    @Step("Переход в раздел dotTrace")
     public void setUp() {
         super.setUp();
         getDriver().get("https://www.jetbrains.com/profiler/");
