@@ -13,7 +13,7 @@ public class DotTracePage {
 
     WebDriver driver;
 
-    @FindBy(xpath = "//a[@href='/profiler/download/']")
+    @FindBy(xpath = "//a[@href='/profiler/downloadSSS/']")
     private WebElement DownloadButton;
 
     @FindBy(xpath = "//*[@id=\"js-menu-second-desktop\"]/a[7]")
@@ -32,32 +32,32 @@ public class DotTracePage {
     private WebElement MoreFeatures;
 
     public Boolean downloadButtonIsClickable() {
-        LOG.infoWithScreenshot("Проверка активности кнопки Download");
+        LOG.info("Проверка активности кнопки Download");
         return DownloadButton.isEnabled();
     }
 
     public Boolean pricingButtonIsClickable() {
-        LOG.infoWithScreenshot("Проверка активности кнопки Pricing");
+        LOG.info("Проверка активности кнопки Pricing");
         return PricingButton.isEnabled();
     }
 
     public Boolean checkOutOurMemoryProfilerButtonIsClickable() {
-        LOG.infoWithScreenshot("Проверка активности кнопки Check out our memory profiler");
+        LOG.info("Проверка активности кнопки Check out our memory profiler");
         return CheckOutOurMemoryProfilerButton.isEnabled();
     }
 
     public Boolean partOfDotUltimateElementIsDisplayed() {
-        LOG.infoWithScreenshot("Проверка, что элемент Part of dotUltimate есть на странице");
+        LOG.info("Проверка, что элемент Part of dotUltimate есть на странице");
         return PartOfDotUltimateElement.isDisplayed();
     }
 
     public Boolean optimizeNetApplicationsIsDisplayed() {
-        LOG.infoWithScreenshot("Проверка, что элемент Optimize.NETApplications есть на странице");
+        LOG.info("Проверка, что элемент Optimize.NETApplications есть на странице");
         return OptimizeNETApplications.isDisplayed();
     }
 
     public String MoreFeaturesButtonClick() {
-        LOG.infoWithScreenshot("Нажатие на кнопку More Features");
+        LOG.info("Нажатие на кнопку More Features");
         MoreFeatures.click();
         return driver.getCurrentUrl();
     }
