@@ -49,13 +49,13 @@ public class DotTraceTest extends BaseTest {
     @Test
     @DisplayName("Проверка, что элемент Part of dotUltimate есть на странице")
     public void partofdotUltimateTest() {
-        assertTrue(DotTracePage.partofdotUltimateElementIsDisplayed(), "Элемента Part of dotUltimate нет на странице");
+        assertTrue(DotTracePage.partOfDotUltimateElementIsDisplayed(), "Элемента Part of dotUltimate нет на странице");
     }
 
     @Test
     @DisplayName("Проверка, что элемент Optimize.NETApplications есть на странице")
     public void optimizeNETApplicationsTest() {
-        assertTrue(DotTracePage.optimizeNETApplicationsIsDisplayed(), "Элемента Optimize.NETApplications нет на странице");
+        assertTrue(DotTracePage.optimizeNetApplicationsIsDisplayed(), "Элемента Optimize.NETApplications нет на странице");
     }
 
     @Test
