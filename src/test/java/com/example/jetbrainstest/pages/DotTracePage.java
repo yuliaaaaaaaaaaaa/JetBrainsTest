@@ -32,32 +32,32 @@ public class DotTracePage {
     private WebElement MoreFeatures;
 
     public Boolean downloadButtonIsClickable() {
-        LOG.info("Проверка активности кнопки Download");
+        LOG.infoWithScreenshot("Проверка активности кнопки Download");
         return DownloadButton.isEnabled();
     }
 
     public Boolean pricingButtonIsClickable() {
-        LOG.info("Проверка активности кнопки Pricing");
+        LOG.infoWithScreenshot("Проверка активности кнопки Pricing");
         return PricingButton.isEnabled();
     }
 
     public Boolean checkOutOurMemoryProfilerButtonIsClickable() {
-        LOG.info("Проверка активности кнопки Check out our memory profiler");
+        LOG.infoWithScreenshot("Проверка активности кнопки Check out our memory profiler");
         return CheckOutOurMemoryProfilerButton.isEnabled();
     }
 
     public Boolean partOfDotUltimateElementIsDisplayed() {
-        LOG.info("Проверка, что элемент Part of dotUltimate есть на странице");
+        LOG.infoWithScreenshot("Проверка, что элемент Part of dotUltimate есть на странице");
         return PartOfDotUltimateElement.isDisplayed();
     }
 
     public Boolean optimizeNetApplicationsIsDisplayed() {
-        LOG.info("Проверка, что элемент Optimize.NETApplications есть на странице");
+        LOG.infoWithScreenshot("Проверка, что элемент Optimize.NETApplications есть на странице");
         return OptimizeNETApplications.isDisplayed();
     }
 
     public String MoreFeaturesButtonClick() {
-        LOG.info("Нажатие на кнопку More Features");
+        LOG.infoWithScreenshot("Нажатие на кнопку More Features");
         MoreFeatures.click();
         return driver.getCurrentUrl();
     }
