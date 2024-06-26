@@ -13,7 +13,7 @@ public class DotTracePage {
 
     WebDriver driver;
 
-    @FindBy(xpath = "//a[@href='/profiler/downloadSSS/']")
+    @FindBy(xpath = "//a[@href='/profiler/downloadSS/']")
     private WebElement DownloadButton;
 
     @FindBy(xpath = "//*[@id=\"js-menu-second-desktop\"]/a[7]")
