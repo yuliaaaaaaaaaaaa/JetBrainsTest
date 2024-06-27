@@ -1,4 +1,4 @@
-package com.example.jetbrainstest.pages;
+package com.example.jetbrainstest.pages.dottracepages;
 
 import com.example.jetbrainstest.AllureLogger;
 import org.openqa.selenium.WebDriver;
@@ -13,10 +13,10 @@ public class DotTracePage {
 
     WebDriver driver;
 
-    @FindBy(xpath = "//a[@href='/profiler/downloadSS/']")
+    @FindBy(xpath = "//a[@href='/profiler/download/']")
     private WebElement DownloadButton;
 
-    @FindBy(xpath = "//*[@id=\"js-menu-second-desktop\"]/a[7]")
+    @FindBy(xpath = "//*[@id=\"js-menu-second-desktop\"]/a[@href=\"/profiler/buy/\"]")
     private WebElement PricingButton;
 
     @FindBy(xpath = "//div[contains(@class, 'wt-col-sm-12')][.//a[contains(@class, 'header-section__button')]]")
@@ -29,7 +29,25 @@ public class DotTracePage {
     private WebElement OptimizeNETApplications;
 
     @FindBy(xpath = "//a[@href='/profiler/features']")
-    private WebElement MoreFeatures;
+    private WebElement MoreFeaturesButton;
+
+    @FindBy(xpath = "//a[@href='/resharper/nextversion/']")
+    private WebElement EarlyAccessElement;
+
+    @FindBy(xpath = "//a[@href='/profiler/whatsnew/']")
+    private WebElement WhatsNewElement;
+
+    @FindBy(xpath = "//a[@href='/profiler/features/']")
+    private WebElement FeaturesElement;
+
+    @FindBy(xpath = "//a[@href='/profiler/etw/']")
+    private WebElement EtwElement;
+
+    @FindBy(xpath = "//a[@href='/profiler/documentation/']")
+    private WebElement DocsDemosElement;
+
+    @FindBy(xpath = "//a[@href='/profiler/social/']")
+    private WebElement BlogSocialElement;
 
     public Boolean downloadButtonIsClickable() {
         LOG.info("Проверка активности кнопки Download");
@@ -58,12 +76,47 @@ public class DotTracePage {
 
     public String MoreFeaturesButtonClick() {
         LOG.info("Нажатие на кнопку More Features");
-        MoreFeatures.click();
+        MoreFeaturesButton.click();
         return driver.getCurrentUrl();
+    }
+
+    public Boolean earlyAccessElementIsDisplayed() {
+        LOG.info("Проверка, что элемент Early Access есть на странице");
+        return EarlyAccessElement.isDisplayed();
+    }
+
+    public Boolean whatsNewElementIsDisplayed() {
+        LOG.info("Проверка, что элемент What's New есть на странице");
+        return WhatsNewElement.isDisplayed();
+    }
+
+    public Boolean featuresElementIsDisplayed() {
+        LOG.info("Проверка, что элемент Features есть на странице");
+        return FeaturesElement.isDisplayed();
+    }
+
+    public Boolean etwElementIsDisplayed() {
+        LOG.info("Проверка, что элемент ETW есть на странице");
+        return EtwElement.isDisplayed();
+    }
+
+    public Boolean docsDemosElementIsDisplayed() {
+        LOG.info("Проверка, что элемент Docs & Demos есть на странице");
+        return DocsDemosElement.isDisplayed();
+    }
+
+    public Boolean blogSocialElementIsDisplayed() {
+        LOG.info("Проверка, что элемент Blog & Social есть на странице");
+        return BlogSocialElement.isDisplayed();
     }
 
     public DotTracePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+    public String downloadButtonClick() {
+        LOG.info("Нажатие на кнопку Download");
+        DownloadButton.click();
+        return driver.getCurrentUrl();
     }
 }
