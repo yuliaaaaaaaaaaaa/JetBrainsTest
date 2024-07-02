@@ -1,0 +1,131 @@
+"Проверка активности кнопки Download"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что кнопка Download активна
+
+
+"Проверка активности кнопки Pricing"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что кнопка Pricing активна
+
+
+"Проверка активности кнопки Check out our memory profiler"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что кнопка Check out our memory profiler активна
+
+
+"Проверка, что элемент Part of dotUltimate есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что элемент Part of dotUltimate есть на странице
+
+
+"Проверка, что элемент Optimize.NETApplications есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что элемент Optimize.NETApplications есть на странице
+
+
+"Переход в раздел Features по кнопке More Features"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Нажать на кнопку More Features
+2)Проверить, что осуществился переход на страницу https://www.jetbrains.com/profiler/features/
+
+
+"Проверка, что элемент Early Access есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что элемент Early Access есть на странице
+
+
+"Проверка, что элемент What's New есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что элемент What's New есть на странице
+
+
+"Проверка, что элемент Features есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что элемент Features есть на странице
+
+
+"Проверка, что элемент ETW есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что элемент ETW есть на странице
+
+
+"Проверка, что элемент Docs & Demos есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что элемент Docs & Demos есть на странице
+
+
+"Проверка, что элемент Blog & Social есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Проверить, что элемент Blog & Social есть на странице
+
+
+"Проверка, перехода на страницу скачивания DotTrace"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Нажать на кнопку Download 
+3)Поверить, что осуществился переход на страницу https://www.jetbrains.com/profiler/download/#section=portable
+
+
+"Проверка, что текст Download dotTrace есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Перейти на страницу https://www.jetbrains.com/profiler/download/#section=portable по кнопке Download
+3)Проверить, что текст Download dotTrace есть на странице
+
+
+"Проверка активности левой кнопки Download"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Перейти на страницу https://www.jetbrains.com/profiler/download/#section=portable по кнопке Download
+3)Проверить, что левая кнопка Download активна
+
+
+"Проверка активности правой кнопки Download (Windows)"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Перейти на страницу https://www.jetbrains.com/profiler/download/#section=portable по кнопке Download
+3)Проверить, что правая кнопка Download (Windows) активна
+
+
+"Проверка, что выпадающее меню есть на странице, после нажатия на правую кнопку Download (Windows)"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Перейти на страницу https://www.jetbrains.com/profiler/download/#section=portable по кнопке Download
+3)Нажать на правую кнопку Download (Windows) 
+4)Проверить, что выпадающее меню есть на странице
+
+
+"Проверка, что элемент Get the Toolbox есть на странице"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Перейти на страницу https://www.jetbrains.com/profiler/download/#section=portable по кнопке Download
+3)Проверить, что элемент Get the Toolbox есть на странице
+
+
+"Проверка, что элемент Get the Toolbox активен"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Перейти на страницу https://www.jetbrains.com/profiler/download/#section=portable по кнопке Download
+3)Проверить, что элемент Get the Toolbox активен
+
+
+"Проверка, перехода на страницу JetBrains Toolbox App нажатием на элемент Get the Toolbox"
+
+1)Перейти на страницу https://www.jetbrains.com/profiler/
+2)Перейти на страницу https://www.jetbrains.com/profiler/download/#section=portable по кнопке Download
+3)Нажать на элемент Get the Toolbox
+4) Поверить, что осуществился переход на страницу https://www.jetbrains.com/toolbox-app/
+
+
