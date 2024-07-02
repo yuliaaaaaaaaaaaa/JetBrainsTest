@@ -5,7 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
+
+import java.time.Duration;
 
 public class DownloadDotTracePage {
 
@@ -46,6 +50,8 @@ public class DownloadDotTracePage {
     public Boolean downloadRightButtonClick() {
         LOG.info("Проверка, что выпадающее меню есть на странице, после нажатия на правую кнопку Download (Windows)");
         DownloadRightButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(DropdownMenu));
         return DropdownMenu.isDisplayed();
     }
 
@@ -62,6 +68,8 @@ public class DownloadDotTracePage {
     public String getTheToolboxElementClick() {
         LOG.info("Нажатие на элемент Get the Toolbox");
         GetTheToolboxElement.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.urlContains("/toolbox-app/"));
         return driver.getCurrentUrl();
     }
 

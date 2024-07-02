@@ -110,13 +110,13 @@ public class DotTracePage {
         return BlogSocialElement.isDisplayed();
     }
 
-    public DotTracePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
     public String downloadButtonClick() {
         LOG.info("Нажатие на кнопку Download");
         DownloadButton.click();
         return driver.getCurrentUrl();
+    }
+    public DotTracePage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 }
